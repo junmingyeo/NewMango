@@ -10,5 +10,12 @@ namespace RestaurantOwner.BLL
 
     public class Coupon_Controller
     {
+        Coupon C = new Coupon();
+
+        //On Page Load Generate Money Report for today
+        public DataTable getAllCoupons()
+        {
+            return C.getAllCoupons();
+        }
     }
 }

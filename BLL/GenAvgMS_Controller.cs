@@ -7,9 +7,9 @@ using System.Data;
 
 namespace RestaurantOwner.BLL
 {
-    public class GenerateSpending_Controller
+    public class GenAvgMS_Controller
     {
-        GenerateSpendingReport GR = new GenerateSpendingReport();
+        GenAvgMS GR = new GenAvgMS();
 
         //On Page Load Generate Money Report for today
         public DataTable GetTodayMoneyReport()

@@ -24,7 +24,7 @@ namespace RestaurantOwner.DAL
             SqlConnection conn = dbConnection.getConnection();
             getAllCoupons = new DataTable();
             sql = new StringBuilder();
-            sql.AppendLine("SELECT * from Coupons");
+            sql.AppendLine("SELECT * from coupons");
             conn.Open();
 
             try
@@ -49,7 +49,7 @@ namespace RestaurantOwner.DAL
         {
             try
             {
-                string sqlStatement = @"INSERT INTO Coupon (couponCode, discount) "
+                string sqlStatement = @"INSERT INTO coupons (couponCode, discountPercentage) "
                 + "VALUES (@couponCode, @discountPercentage) ";
 
                 SqlCommand cmd = new SqlCommand(sqlStatement);

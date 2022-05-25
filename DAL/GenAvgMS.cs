@@ -11,7 +11,7 @@ using System.Text;
 
 namespace RestaurantOwner.DAL
 {
-    public class GenerateSpendingReport
+    public class GenAvgMS
     {
         private SqlConnection sqlConnection = new SqlConnection();
         private String errMsg;
