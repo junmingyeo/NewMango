@@ -13,29 +13,29 @@ namespace RestaurantOwner.DAL
     public class Users
     {
         private String errMsg;
-        //public string Email { get; set; }
-        //public string Password { get; set; }
         DALDBConn dbConn = new DALDBConn();
-        public DataSet staffLogin(String email, String password)
+
+        public DataSet getUserDetails(string userID, string password)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
-            DataSet ExchangeProgramsData = new DataSet();
+            DataSet accountData = new DataSet();
+
+            SqlConnection conn = dbConn.getConnection();
 
             sql = new StringBuilder();
-            sql.AppendLine("SELECT * FROM UserRegister");
+            sql.AppendLine("SELECT * FROM Users");
             sql.AppendLine(" ");
-            sql.AppendLine("WHERE email=@Email AND password=@Password");
-            SqlConnection conn = dbConn.getConnection();
+            sql.AppendLine("WHERE Email=@Email AND Password=@Password");
+            conn.Open();
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@Email", email);
+                sqlCmd.Parameters.AddWithValue("@Email", userID);
                 sqlCmd.Parameters.AddWithValue("@Password", password);
-                //SqlDataReader dr = sqlCmd.ExecuteReader();
                 SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
 
-                da.Fill(ExchangeProgramsData);
+                da.Fill(accountData);
             }
             catch (Exception ex)
             {
@@ -46,9 +46,11 @@ namespace RestaurantOwner.DAL
                 conn.Close();
             }
 
-            return ExchangeProgramsData;
+            return accountData;
         }
-        public int staffRegistration(string Email, string FirstName, string LastName, string Password, string Role)
+
+       
+        public int CreateUser(string Email, string FirstName, string LastName, string Password, string Role)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;

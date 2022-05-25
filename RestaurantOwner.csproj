@@ -67,10 +67,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddAccount.aspx" />
+    <Content Include="AdminPage.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Cart.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -82,7 +85,12 @@
     <Content Include="css\pagination.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="EditProfile.aspx" />
     <Content Include="GenerateMoneySpent.aspx" />
+    <Content Include="RestaurantManagerPage.aspx" />
+    <Content Include="RestaurantOwnerPage.aspx" />
+    <Content Include="RestaurantStaffPage.aspx" />
+    <Content Include="Item.aspx" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.js" />
@@ -96,26 +104,93 @@
     <Content Include="js\npm.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
+    <Content Include="Menu.aspx" />
+    <Content Include="LoginPage.aspx" />
+    <Content Include="ViewCoupon.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAccount.aspx.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAccount.aspx.designer.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage.aspx.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPage.aspx.designer.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BLL\Coupon_Controller.cs" />
     <Compile Include="BLL\GenAvgMS_Controller.cs" />
     <Compile Include="BLL\GenFreqVisit_Controller.cs" />
     <Compile Include="BLL\GenTopItems_Controller.cs" />
+    <Compile Include="BLL\LoginController.cs" />
     <Compile Include="BLL\User_Controller.cs" />
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Coupon.cs" />
     <Compile Include="DAL\DALDBConn.cs" />
     <Compile Include="DAL\GenAvgMS.cs" />
     <Compile Include="DAL\GenFreqVisit.cs" />
     <Compile Include="DAL\GenTopItems.cs" />
     <Compile Include="DAL\Users.cs" />
+    <Compile Include="EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GenerateMoneySpent.aspx.cs">
       <DependentUpon>GenerateMoneySpent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GenerateMoneySpent.aspx.designer.cs">
       <DependentUpon>GenerateMoneySpent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantManagerPage.aspx.cs">
+      <DependentUpon>RestaurantManagerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantManagerPage.aspx.designer.cs">
+      <DependentUpon>RestaurantManagerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantOwnerPage.aspx.cs">
+      <DependentUpon>RestaurantOwnerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantOwnerPage.aspx.designer.cs">
+      <DependentUpon>RestaurantOwnerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantStaffPage.aspx.cs">
+      <DependentUpon>RestaurantStaffPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantStaffPage.aspx.designer.cs">
+      <DependentUpon>RestaurantStaffPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Item.aspx.cs">
+      <DependentUpon>Item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Item.aspx.designer.cs">
+      <DependentUpon>Item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Main.Master.cs">
@@ -124,6 +199,21 @@
     </Compile>
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Validation.cs" />
+    <Compile Include="ViewCoupon.aspx.cs">
+      <DependentUpon>ViewCoupon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCoupon.aspx.designer.cs">
+      <DependentUpon>ViewCoupon.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
