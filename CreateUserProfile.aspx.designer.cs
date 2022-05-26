@@ -11,70 +11,61 @@ namespace RestaurantOwner
 {
 
 
-    public partial class LoginPage
+    public partial class CreateUserProfile
     {
 
         /// <summary>
-        /// lblError control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Login control.
+        /// UP_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Login;
+        protected global::System.Web.UI.WebControls.TextBox UP_tb;
 
         /// <summary>
-        /// tb_Email control.
+        /// lblUserProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_Email;
+        protected global::System.Web.UI.WebControls.Label lblUserProfile;
 
         /// <summary>
-        /// lblEmail control.
+        /// Access_DDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.DropDownList Access_DDL;
 
         /// <summary>
-        /// tb_Password control.
+        /// lblAccessDDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_Password;
+        protected global::System.Web.UI.WebControls.Label lblAccessDDL;
 
         /// <summary>
-        /// lblPassword control.
+        /// AddUPBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
-
-        /// <summary>
-        /// btn_SignIn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_SignIn;
+        protected global::System.Web.UI.WebControls.Button AddUPBtn;
     }
 }

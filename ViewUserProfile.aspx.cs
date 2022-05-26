@@ -7,14 +7,12 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using RestaurantOwner.BLL;
 
 namespace RestaurantOwner
 {
-    public partial class AdminViewAccount : System.Web.UI.Page
+    public partial class ViewUserProfile : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\Database.mdf;Integrated Security=True");
-
         protected void Page_Load(object sender, EventArgs e)
         {
             string Email;
@@ -40,34 +38,49 @@ namespace RestaurantOwner
 
 
             con.Open();
-            string strCommandText = "SELECT * from UserRegister ORDER BY [Role]";
+            string strCommandText = "SELECT * FROM UserRegister ORDER BY [Role]";
             SqlCommand cmd1 = new SqlCommand(strCommandText, con);
             SqlDataReader rdr = cmd1.ExecuteReader();
-            gvAccount.DataSource = rdr;
-            gvAccount.DataBind();
-            lbl_gvCount.Text = gvAccount.Rows.Count.ToString();
+            gvUserProfile.DataSource = rdr;
+            gvUserProfile.DataBind();
+            lbl_up_gvCount.Text = gvUserProfile.Rows.Count.ToString();
             con.Close();
+
         }
 
-
-        protected void btn_AddAccount_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddAccount.aspx");
-        }
-
+        //protected void bind()
+        //{
+        //    List<Tradep> tradepList = new List<Tradep>();
+        //    tradepList = aTrad.getTradepAll();
+        //    gvTradep.DataSource = tradepList;
+        //    gvTradep.DataBind();
+        //}
         protected void FillGrid()
         {
-            SqlCommand cmd = new SqlCommand("select * from UserRegister", con);
+            SqlCommand cmd = new SqlCommand("select * from UserRole", con);
             con.Open();
-            gvAccount.DataSource = cmd.ExecuteReader();
-            gvAccount.DataBind();
+            gvUserProfile.DataSource = cmd.ExecuteReader();
+            gvUserProfile.DataBind();
             con.Close();
         }
 
-        protected void gvAccount_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void btn_AddUserProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateUserProfile.aspx");
+        }
+        //protected void FillGrid()
+        //{
+        //    SqlCommand cmd = new SqlCommand("SELECT * FROM UserRegister", con);
+        //    con.Open();
+        //    gvUserProfile.DataSource = cmd.ExecuteReader();
+        //    gvUserProfile.DataBind();
+        //    con.Close();
+        //}
+
+        protected void gvUserProfile_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
-            int UserID = Convert.ToInt32(gvAccount.DataKeys[e.RowIndex].Value);
+            int UserID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
             SqlCommand cmd = new SqlCommand("DELETE FROM UserRegister WHERE UserID =" + UserID, con);
             con.Open();
             int temp = cmd.ExecuteNonQuery();
@@ -80,24 +93,20 @@ namespace RestaurantOwner
         }
 
 
-        protected void gvAccount_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void gvUserProfile_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            gvAccount.EditIndex = e.NewEditIndex;
+            gvUserProfile.EditIndex = e.NewEditIndex;
             FillGrid();
         }
 
-        protected void gvAccount_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void gvUserProfile_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            int index = gvAccount.EditIndex;
-            GridViewRow row = gvAccount.Rows[index];
-            int Uid = Convert.ToInt32(gvAccount.DataKeys[e.RowIndex].Value);
-            string Email = ((TextBox)row.Cells[1].Controls[0]).Text.ToString().Trim();
-            string FirstName = ((TextBox)row.Cells[2].Controls[0]).Text.ToString().Trim();
-            string LastName = ((TextBox)row.Cells[3].Controls[0]).Text.ToString().Trim();
-            string Password = ((TextBox)row.Cells[4].Controls[0]).Text.ToString().Trim();
-            string Role = ((TextBox)row.Cells[5].Controls[0]).Text.ToString().Trim();
+            int index = gvUserProfile.EditIndex;
+            GridViewRow row = gvUserProfile.Rows[index];
+            int UserID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
+            string Role = ((TextBox)row.Cells[4].Controls[0]).Text.ToString().Trim();
 
-            string sql = "UPDATE UserRegister SET Email='" + Email + "',FirstName='" + FirstName + "',LastName='" + LastName + "',Password='" + Password + "',Role='" + Role + "' WHERE UserID=" + Uid + "";
+            string sql = "UPDATE UserRegister SET Role='" + Role + "' WHERE UserID=" + UserID + "";
 
 
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -109,32 +118,32 @@ namespace RestaurantOwner
 
                 lblMessage.Text = "Record UPDATED successfully";
             }
-            gvAccount.EditIndex = -1;
+            gvUserProfile.EditIndex = -1;
             FillGrid();
 
         }
-        protected void gvAccount_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        protected void gvUserProfile_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            gvAccount.EditIndex = -1;
+            gvUserProfile.EditIndex = -1;
             FillGrid();
         }
 
 
-        protected void searchbtn_Click(object sender, EventArgs e)
+        protected void searchUPbtn_Click(object sender, EventArgs e)
         {
             string mainconn = ConfigurationManager.ConnectionStrings["MangoDB"].ConnectionString;
             SqlConnection sqlconn = new SqlConnection(mainconn);
             sqlconn.Open();
             SqlCommand sqlCmd = new SqlCommand();
-            string sqlquery = "SELECT * FROM [dbo].[UserRegister] WHERE FirstName like '%'+@FirstName+'%'";
+            string sqlquery = "SELECT * FROM [dbo].[UserRegister] WHERE Role like '%'+@Role+'%'";
             sqlCmd.CommandText = sqlquery;
             sqlCmd.Connection = sqlconn;
-            sqlCmd.Parameters.AddWithValue("FirstName", txtsearch.Text);
+            sqlCmd.Parameters.AddWithValue("Role", txtUPsearch.Text);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
             sda.Fill(dt);
-            gvAccount.DataSource = dt;
-            gvAccount.DataBind();
+            gvUserProfile.DataSource = dt;
+            gvUserProfile.DataBind();
         }
     }
 }

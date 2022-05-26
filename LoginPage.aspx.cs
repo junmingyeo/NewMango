@@ -11,7 +11,7 @@ using RestaurantOwner.BLL;
 
 namespace RestaurantOwner
 {
-    public partial class UserLogin : System.Web.UI.Page
+    public partial class LoginPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,7 +64,7 @@ namespace RestaurantOwner
                     Session["role"] = DataSetResult.Tables[0].Rows[0]["Role"].ToString();
                     if (Session["role"].ToString() == "Admin")
                     {
-                        Response.Redirect("AdminHomePage.aspx");
+                        Response.Redirect("AdminPage.aspx");
 
                     }
                     else if (Session["role"].ToString() == "Restaurant Staff")
@@ -92,7 +92,6 @@ namespace RestaurantOwner
 
                 }
             }
-
         }
     }
 }

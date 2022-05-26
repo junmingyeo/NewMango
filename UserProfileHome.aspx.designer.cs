@@ -11,25 +11,25 @@ namespace RestaurantOwner
 {
 
 
-    public partial class RestaurantManagerPage
+    public partial class UserProfileHome
     {
 
         /// <summary>
-        /// viewcoupon control.
+        /// createupbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button viewcoupon;
+        protected global::System.Web.UI.WebControls.Button createupbtn;
 
         /// <summary>
-        /// createmenu control.
+        /// viewupbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createmenu;
+        protected global::System.Web.UI.WebControls.Button viewupbtn;
     }
 }

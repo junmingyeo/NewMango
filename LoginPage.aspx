@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="RestaurantOwner.UserLogin" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-        <style>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="RestaurantOwner.LoginPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <style>
             table {
                 margin:0 auto;
             }
@@ -31,9 +31,7 @@
             }
     </style>
 </asp:Content>
-
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server" style="text-align:center;">
     <br />
     <br />
@@ -61,4 +59,3 @@
     <br />
     </form>
 </asp:Content>
-

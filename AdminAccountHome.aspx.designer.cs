@@ -11,7 +11,7 @@ namespace RestaurantOwner
 {
 
 
-    public partial class AdminHomePage
+    public partial class AdminAccountHome
     {
 
         /// <summary>

@@ -11,7 +11,7 @@ namespace RestaurantOwner
 {
 
 
-    public partial class AdminViewAccount
+    public partial class ViewUserProfile
     {
 
         /// <summary>
@@ -24,67 +24,67 @@ namespace RestaurantOwner
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ViewAccount control.
+        /// ViewUser_Profile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ViewAccount;
+        protected global::System.Web.UI.WebControls.Panel ViewUser_Profile;
 
         /// <summary>
-        /// txtsearch control.
+        /// txtUPsearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsearch;
+        protected global::System.Web.UI.WebControls.TextBox txtUPsearch;
 
         /// <summary>
-        /// searchbtn control.
+        /// searchUPbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button searchbtn;
+        protected global::System.Web.UI.WebControls.Button searchUPbtn;
 
         /// <summary>
-        /// btn_AddAccount control.
+        /// btn_AddUserProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_AddAccount;
+        protected global::System.Web.UI.WebControls.Button btn_AddUserProfile;
 
         /// <summary>
-        /// Label1 control.
+        /// gvlbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label gvlbl;
 
         /// <summary>
-        /// lbl_gvCount control.
+        /// lbl_up_gvCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_gvCount;
+        protected global::System.Web.UI.WebControls.Label lbl_up_gvCount;
 
         /// <summary>
-        /// gvAccount control.
+        /// gvUserProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAccount;
+        protected global::System.Web.UI.WebControls.GridView gvUserProfile;
 
         /// <summary>
         /// lblMessage control.

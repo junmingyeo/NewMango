@@ -18,16 +18,13 @@ namespace RestaurantOwner.BLL
 
         public DataSet GetRole()
         {
-            //Roledal dataLayerRoleData;
-            //dataLayerRoleData = new Roledal();
             return dal.BindDDLRole();
         }
-        public int GetNewRole(string newrole, string functionaccess)
-        {
-            //Roledal dataLayerNewroleDetails;
-            //dataLayerNewroleDetails = new Roledal();
-            return dal.Newrole(newrole, functionaccess);
-        }
+        //public int GetNewRole(string newrole, string functionaccess)
+        //{
+        //    //Roledal dataLayerNewroleDetails;
+        //    //dataLayerNewroleDetails = new Roledal();
+        //    return dal.Newrole(newrole, functionaccess);
+        //}
     }
-}
 }

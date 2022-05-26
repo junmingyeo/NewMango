@@ -15,8 +15,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Button runat="server" ID="createaccbtn" class="btn" OnClientClick="window.location.href='ViewCoupon.aspx'; return false;"
+    <form runat="server" style="text-align:center;">
+    <h1>Manage User Account</h1>
+    <asp:Button runat="server" ID="viewcoupon" class="btn" OnClientClick="window.location.href='ViewCoupon.aspx'; return false;"
   Text="View Coupon"></asp:Button>
-    <asp:Button runat="server" ID="pwchange" class="btn" OnClientClick="window.location.href='CreateItem.aspx'; return false;"
+    <asp:Button runat="server" ID="createmenu" class="btn" OnClientClick="window.location.href='CreateItemPage.aspx'; return false;"
   Text="Create Menu Item"></asp:Button>
+    </form>
+
 </asp:Content>

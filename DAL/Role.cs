@@ -110,35 +110,35 @@ namespace RestaurantOwner.DAL
             return RoleData;
         }
 
-        public int Newrole(string newrole, string functionaccess)
-        {
-            StringBuilder sql;
-            SqlCommand sqlCmd;
-            int result = 0;
+        //public int Newrole(string newrole, string functionaccess)
+        //{
+        //    StringBuilder sql;
+        //    SqlCommand sqlCmd;
+        //    int result = 0;
 
-            sql = new StringBuilder();
-            sql.AppendLine("INSERT INTO UserRole (Role, Function)");
-            sql.AppendLine(" ");
-            sql.AppendLine("VALUES (@Role, @Function)"); ;
-            SqlConnection conn = dbConn.getConnection();
-            conn.Open();
-            try
-            {
-                sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@Role", newrole);
-                sqlCmd.Parameters.AddWithValue("@Function", functionaccess);
-                result = sqlCmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                errMsg = ex.Message;
-            }
-            finally
-            {
-                conn.Close();
-            }
+        //    sql = new StringBuilder();
+        //    sql.AppendLine("INSERT INTO UserRole (Role, Function)");
+        //    sql.AppendLine(" ");
+        //    sql.AppendLine("VALUES (@Role, @Function)"); ;
+        //    SqlConnection conn = dbConn.getConnection();
+        //    conn.Open();
+        //    try
+        //    {
+        //        sqlCmd = new SqlCommand(sql.ToString(), conn);
+        //        sqlCmd.Parameters.AddWithValue("@Role", newrole);
+        //        sqlCmd.Parameters.AddWithValue("@Function", functionaccess);
+        //        result = sqlCmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        errMsg = ex.Message;
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
     }
 }

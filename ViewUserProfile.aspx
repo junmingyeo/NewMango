@@ -1,37 +1,56 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMain.Master" AutoEventWireup="true" CodeBehind="AdminViewAccount.aspx.cs" Inherits="RestaurantOwner.AdminViewAccount" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMain.Master" AutoEventWireup="true" CodeBehind="ViewUserProfile.aspx.cs" Inherits="RestaurantOwner.ViewUserProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        table{
+           text-align:center;
+            margin: 0px auto;
+        }
+        .auto-style1 {
+            text-align:center;
+        }
+        .btn{
+            font-weight:bold;
+            font-size:16px;
+            background-color: #59b300;
+            color:white;
+            border-radius: 5px;
+            border: 1px solid #b3b3b3;
+            width:350px;
+            height:100px;
+        }
 
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <br />
-
-           <asp:Panel ID="ViewAccount" runat="server" GroupingText="View Account" style="font-weight:500; font-size:40px;text-align:center;"></asp:Panel>
+           <asp:Panel ID="ViewUser_Profile" runat="server" GroupingText="View User Profile" style="font-weight:500; font-size:40px;text-align:center;"></asp:Panel>
         <div class="auto-style1">
             <div>
                 <center>
-                    Search: <asp:TextBox ID="txtsearch" runat="server"></asp:TextBox> 
-                    <asp:Button ID="searchbtn" runat="server" Text="Search" ShowHeaderWhenEmpty ="true" EmptyDataText="No Records Found!" OnClick="searchbtn_Click" /> <br />
+                    Search: <asp:TextBox ID="txtUPsearch" runat="server"></asp:TextBox> 
+                    &nbsp;&nbsp; 
+                    <asp:Button ID="searchUPbtn" runat="server" Text="Search" ShowHeaderWhenEmpty ="true" class="btn" EmptyDataText="No Records Found!" OnClick="searchUPbtn_Click" /> <br /> <br />
                 </center>
             </div>
-            <asp:Button ID="btn_AddAccount" runat="server" Text="Add Account" OnClick="btn_AddAccount_Click" />
+            <asp:Button ID="btn_AddUserProfile" runat="server" class="btn" Text="Add User Profile" OnClick="btn_AddUserProfile_Click" />
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" class="gvLabel">Total Available Account: </asp:Label>
-            <asp:Label ID="lbl_gvCount" runat="server" class="gvLabel"></asp:Label>
-        </div>
+            <asp:Label ID="gvlbl" runat="server" class="gvLabel">Total User Profile: </asp:Label>
+            <asp:Label ID="lbl_up_gvCount" runat="server" class="gvLabel"></asp:Label>
+        &nbsp;<a href="ViewUserProfile.aspx">View All User Profiles</a></div>
         <br />
         <table class="w-100">
             <tr>
-                <td><asp:GridView ID="gvAccount" runat="server" 
+                <td><asp:GridView ID="gvUserProfile" runat="server" 
                     AutoGenerateColumns="False"
                     DataKeyNames="UserID" 
                     Width="50%" 
                     AllowSorting="True" 
-                    OnRowDeleting="gvAccount_RowDeleting" 
-                    OnRowCancelingEdit="gvAccount_RowCancelingEdit" 
-                    OnRowEditing="gvAccount_RowEditing" 
-                    OnRowUpdating="gvAccount_RowUpdating" 
+                    OnRowDeleting="gvUserProfile_RowDeleting" 
+                    OnRowCancelingEdit="gvUserProfile_RowCancelingEdit" 
+                    OnRowEditing="gvUserProfile_RowEditing" 
+                    OnRowUpdating="gvUserProfile_RowUpdating" 
                     ShowHeaderWhenEmpty="True"
                     HeaderStyle-CssClass="gridviewheader"
                     EmptyDataText="No Records Found"
@@ -45,7 +64,6 @@
                 <asp:BoundField DataField="Email" HeaderText="Email" />
                 <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                 <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-                <asp:BoundField DataField="Password" HeaderText="Password" />
                 <asp:BoundField DataField="Role" HeaderText="Role" />
                 <asp:CommandField ShowEditButton="True" EditText="<img style='height:20px; width:20px;' src='images/editicon.jpg'/>" />
                 <asp:TemplateField>
@@ -67,15 +85,6 @@
                 </td>
             </tr>
         </table>
-        <br />
-        <br />
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <br />
         <br />
     </form>
