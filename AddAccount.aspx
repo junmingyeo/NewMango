@@ -32,9 +32,8 @@
 }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder4" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form id="form1" runat="server" style="text-align:center;">
         <br /><br /><br />
               <asp:Panel ID="CreateAccount" runat="server" GroupingText="Create Account" style="font-weight:500; font-size:40px;">
         </asp:Panel>
@@ -57,6 +56,11 @@
           <asp:TextBox ID="tb_ConfirmPassword" runat="server" Placeholder="Confirm Password*" class="textbox" TextMode="Password"></asp:TextBox><br />
                 <asp:Label ID="lblConfirmPassword" runat="server" class="validation validation-285"></asp:Label><br />
         <asp:DropDownList ID="ddl_Role" runat="server">
+            <asp:ListItem Value="">Please Select</asp:ListItem>  
+            <asp:ListItem>Admin</asp:ListItem>  
+            <asp:ListItem>Restaurant Staff</asp:ListItem>  
+            <asp:ListItem>Restaurant Manager</asp:ListItem>  
+            <asp:ListItem>Restaurant Owner</asp:ListItem>  
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblRole" runat="server" class="validation validation-330"></asp:Label>
@@ -67,4 +71,5 @@
     <asp:Button ID="btn_Cancel" runat="server" Text="CANCEL" Height="50px" Width="480px" class="btn btn2" OnClick="btn_Cancel_Click"/>
         <br />
         <br />
+    </form>
 </asp:Content>

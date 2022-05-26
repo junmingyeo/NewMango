@@ -61,22 +61,23 @@ namespace RestaurantOwner
                     Session["Email"] = DataSetResult.Tables[0].Rows[0]["Email"].ToString();
                     Session["Name"] = DataSetResult.Tables[0].Rows[0]["FirstName"].ToString() + DataSetResult.Tables[0].Rows[0]["LastName"].ToString();
                     Session["Role"] = DataSetResult.Tables[0].Rows[0]["Role"].ToString();
-                    if (Session["Role"].ToString() == "Admin")
+                    Session["role"] = DataSetResult.Tables[0].Rows[0]["Role"].ToString();
+                    if (Session["role"].ToString() == "Admin")
                     {
-                        Response.Redirect("AdminPage.aspx");
+                        Response.Redirect("AdminHomePage.aspx");
 
                     }
-                    else if (Session["Role"].ToString() == "Staff")
+                    else if (Session["role"].ToString() == "Staff")
                     {
                         Response.Redirect("RestaurantStaffPage.aspx");
 
                     }
-                    else if (Session["Role"].ToString() == "Owner")
+                    else if (Session["role"].ToString() == "Owner")
                     {
                         Response.Redirect("RestaurantOwnerPage.aspx");
 
                     }
-                    else if (Session["Role"].ToString() == "Manager")
+                    else if (Session["role"].ToString() == "Manager")
                     {
                         Response.Redirect("RestaurantManagerPage.aspx");
 

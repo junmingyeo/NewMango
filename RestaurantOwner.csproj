@@ -68,7 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddAccount.aspx" />
-    <Content Include="AdminPage.aspx" />
+    <Content Include="AdminHomePage.aspx" />
+    <Content Include="AdminViewAccount.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
@@ -117,18 +118,33 @@
     <Compile Include="AddAccount.aspx.designer.cs">
       <DependentUpon>AddAccount.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminPage.aspx.cs">
-      <DependentUpon>AdminPage.aspx</DependentUpon>
+    <Compile Include="AdminHomePage.aspx.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminPage.aspx.designer.cs">
-      <DependentUpon>AdminPage.aspx</DependentUpon>
+    <Compile Include="AdminHomePage.aspx.designer.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMain.Master.cs">
+      <DependentUpon>AdminMain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminMain.Master.designer.cs">
+      <DependentUpon>AdminMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewAccount.aspx.cs">
+      <DependentUpon>AdminViewAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViewAccount.aspx.designer.cs">
+      <DependentUpon>AdminViewAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL\Coupon_Controller.cs" />
     <Compile Include="BLL\GenAvgMS_Controller.cs" />
     <Compile Include="BLL\GenFreqVisit_Controller.cs" />
     <Compile Include="BLL\GenTopItems_Controller.cs" />
     <Compile Include="BLL\LoginController.cs" />
+    <Compile Include="BLL\Role_Controller.cs" />
     <Compile Include="BLL\User_Controller.cs" />
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
@@ -142,6 +158,7 @@
     <Compile Include="DAL\GenAvgMS.cs" />
     <Compile Include="DAL\GenFreqVisit.cs" />
     <Compile Include="DAL\GenTopItems.cs" />
+    <Compile Include="DAL\Role.cs" />
     <Compile Include="DAL\Users.cs" />
     <Compile Include="EditProfile.aspx.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
@@ -221,6 +238,7 @@
     <Content Include="css\bootstrap-theme.min.css.map" />
     <Content Include="css\bootstrap.css.map" />
     <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="AdminMain.Master" />
     <None Include="packages.config" />
     <Content Include="Main.Master" />
     <None Include="Web.Debug.config">

@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="RestaurantOwner.UserLogin" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+        <style>
             table {
                 margin:0 auto;
             }
-
-
             .auto-style1 {
                 width: 160px;
                 text-align:left;
@@ -33,7 +31,10 @@
             }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder4" runat="server">
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <form runat="server" style="text-align:center;">
     <br />
     <br />
     <br />
@@ -51,13 +52,13 @@
     <br />
         <asp:Button ID="btn_SignIn" runat="server" Text="SIGN IN" class="btn" OnClick="btn_SignIn_Click"/>
     <br />
-        <%--<table>
+        <table>
             <tr>
                 <td class="auto-style2"><a class="form-text" href="UserRegister.aspx">Register</a><br /></td>
                 <td class="auto-style3"><a class="form-text text-muted" href="UserForgetPassword.aspx">Forget Password?</a><br /></td>
             </tr>
-        </table>--%>
+        </table>
     <br />
+    </form>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-</asp:Content>
+

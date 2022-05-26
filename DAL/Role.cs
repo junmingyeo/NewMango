@@ -7,70 +7,31 @@ using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 
-
 namespace RestaurantOwner.DAL
 {
-    public class Users
+    public class Role
     {
         private String errMsg;
         DALDBConn dbConn = new DALDBConn();
 
-        public DataSet getUserDetails(string userID, string password)
-        {
-            StringBuilder sql;
-            SqlCommand sqlCmd;
-            DataSet accountData = new DataSet();
-
-            SqlConnection conn = dbConn.getConnection();
-
-            sql = new StringBuilder();
-            sql.AppendLine("SELECT * FROM UserRegister");
-            sql.AppendLine(" ");
-            sql.AppendLine("WHERE Email=@Email AND Password=@Password");
-            conn.Open();
-            try
-            {
-                sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@Email", userID);
-                sqlCmd.Parameters.AddWithValue("@Password", password);
-                SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
-
-                da.Fill(accountData);
-            }
-            catch (Exception ex)
-            {
-                errMsg = ex.Message;
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return accountData;
-        }
-
-       
-        public int CreateUser(string Email, string FirstName, string LastName, string Password, string Role)
+        public int CreateRole(string nRole, string gFunction)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
             int result = 0;
 
             sql = new StringBuilder();
-            sql.AppendLine("INSERT INTO UserRegister (Email, FirstName, LastName, Password, Role)");
+            sql.AppendLine("INSERT INTO UserRole (Role, FunctionAccess)");
             sql.AppendLine(" ");
-            sql.AppendLine("VALUES (@Email, @FirstName, @LastName, @Password, @Role)");
+            sql.AppendLine("VALUES (@Role, @FunctionAccess)");
             SqlConnection conn = dbConn.getConnection();
             conn.Open();
 
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@Email", Email);
-                sqlCmd.Parameters.AddWithValue("@FirstName", FirstName);
-                sqlCmd.Parameters.AddWithValue("@LastName", LastName);
-                sqlCmd.Parameters.AddWithValue("@Password", Password);
-                sqlCmd.Parameters.AddWithValue("@Role", Role);
+                sqlCmd.Parameters.AddWithValue("@Role", nRole);
+                sqlCmd.Parameters.AddWithValue("@FunctionAccess", gFunction);
                 result = sqlCmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -84,21 +45,24 @@ namespace RestaurantOwner.DAL
 
             return result;
         }
-        public DataSet profileDetails(int UserID)
+
+        //for select later
+        public DataSet RoleDetails(int RoleID)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
             DataSet ExchangeProgramsData = new DataSet();
 
             sql = new StringBuilder();
-            sql.AppendLine("SELECT * FROM UserRegister");
+            sql.AppendLine("SELECT * FROM UserRole");
             sql.AppendLine(" ");
-            sql.AppendLine("WHERE UserID=@UserID");
+            sql.AppendLine("WHERE RoleID=@RoleID");
             SqlConnection conn = dbConn.getConnection();
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@UserID", UserID);
+                sqlCmd.Parameters.AddWithValue("@RoleID", RoleID);
+                //SqlDataReader dr = sqlCmd.ExecuteReader();
                 SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
 
                 da.Fill(ExchangeProgramsData);
@@ -114,22 +78,25 @@ namespace RestaurantOwner.DAL
 
             return ExchangeProgramsData;
         }
-        public DataSet adminResetPW()
+        public DataSet BindDDLRole()
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
-            DataSet ExchangeProgramsData = new DataSet();
+            DataSet RoleData = new DataSet();
 
             sql = new StringBuilder();
-            sql.AppendLine("SELECT UserID, CONCAT(FirstName,' ', LastName) AS adminName FROM UserRegister");
+            sql.AppendLine("SELECT Role FROM UserRole");
             sql.AppendLine(" ");
+            //sql.AppendLine("WHERE RoleID=@RoleID");
             SqlConnection conn = dbConn.getConnection();
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
+                //sqlCmd.Parameters.AddWithValue("@Role", Role);
+                //SqlDataReader dr = sqlCmd.ExecuteReader();
                 SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
 
-                da.Fill(ExchangeProgramsData);
+                da.Fill(RoleData);
             }
             catch (Exception ex)
             {
@@ -140,24 +107,26 @@ namespace RestaurantOwner.DAL
                 conn.Close();
             }
 
-            return ExchangeProgramsData;
+            return RoleData;
         }
-        public int adminResetPWPassword(int UserID, string newPassword)
+
+        public int Newrole(string newrole, string functionaccess)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
             int result = 0;
 
             sql = new StringBuilder();
-            sql.AppendLine("UPDATE UserRegister set password = @Password WHERE UserID = @UserID");
+            sql.AppendLine("INSERT INTO UserRole (Role, Function)");
             sql.AppendLine(" ");
+            sql.AppendLine("VALUES (@Role, @Function)"); ;
             SqlConnection conn = dbConn.getConnection();
             conn.Open();
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@Password", newPassword);
-                sqlCmd.Parameters.AddWithValue("@UserID", UserID);
+                sqlCmd.Parameters.AddWithValue("@Role", newrole);
+                sqlCmd.Parameters.AddWithValue("@Function", functionaccess);
                 result = sqlCmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -171,6 +140,5 @@ namespace RestaurantOwner.DAL
 
             return result;
         }
-
     }
 }
