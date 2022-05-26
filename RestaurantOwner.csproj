@@ -70,6 +70,7 @@
     <Content Include="AddAccount.aspx" />
     <Content Include="AdminAccountHome.aspx" />
     <Content Include="AdminPage.aspx" />
+    <Content Include="AdminViewAccount.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
@@ -138,6 +139,13 @@
     </Compile>
     <Compile Include="AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewAccount.aspx.cs">
+      <DependentUpon>AdminViewAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViewAccount.aspx.designer.cs">
+      <DependentUpon>AdminViewAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL\Coupon_Controller.cs" />
     <Compile Include="BLL\GenAvgMS_Controller.cs" />

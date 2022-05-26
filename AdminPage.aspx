@@ -19,7 +19,7 @@
         
         <asp:Button runat="server" ID="createaccbtn" class="btn" OnClientClick="window.location.href='AddAccount.aspx'; return false;"
   Text="Create Account"></asp:Button>
-    <asp:Button runat="server" ID="viewaccbtn" class="btn" OnClientClick="window.location.href='ViewAccount.aspx'; return false;"
+    <asp:Button runat="server" ID="viewaccbtn" class="btn" OnClientClick="window.location.href='AdminViewAccount.aspx'; return false;"
   Text="View Account"></asp:Button>
         
     <asp:Button runat="server" ID="createupbtn" class="btn" OnClientClick="window.location.href='CreateUserProfile.aspx'; return false;"
