@@ -23,7 +23,7 @@ namespace RestaurantOwner
 
                 {
 
-                    Response.Redirect("UserLogin.aspx");
+                    Response.Redirect("LoginPage.aspx");
                 }
                 if (Session["role"].ToString() == "Admin")
                 {
@@ -33,7 +33,7 @@ namespace RestaurantOwner
                 }
                 else
                 {
-                    Response.Redirect("UserLogin.aspx");
+                    Response.Redirect("LoginPage.aspx");
                 }
             }
         }
@@ -123,7 +123,7 @@ namespace RestaurantOwner
                 DataSetResult = LC.AddAccount(tb_Email.Text.ToString().Trim(), tb_FirstName.Text.ToString().Trim(), tb_LastName.Text.ToString().Trim(), tb_Password.Text.ToString().Trim(), ddl_Role.SelectedValue.ToString().Trim());
                 if (DataSetResult > 0)
                 {
-                    Response.Write("<script>alert('Registered successfully');window.location='UserLogin.aspx';</script>");
+                    Response.Write("<script>alert('Registered successfully');window.location='AdminViewAccount.aspx';</script>");
                 }
                 else
                 {

@@ -45,26 +45,29 @@ namespace RestaurantOwner.DAL
         }
 
         //Create Coupons with Auto Generated ID
-        public bool createCoupon(string couponCode, string discountPercentage)
+        public int createCoupon(string couponCode, int discountPercentage)
         {
+            StringBuilder sql;
+            SqlCommand cmd;
+            int result = 0;
+            sql = new StringBuilder();
+            sql.AppendLine("INSERT INTO coupons (couponCode, discountPercentage)");
+            sql.AppendLine(" ");
+            sql.AppendLine("VALUES (@couponCode, @discountPercentage)");
+            SqlConnection conn = dbConnection.getConnection();
             try
             {
-                string sqlStatement = @"INSERT INTO coupons (couponCode, discountPercentage) "
-                + "VALUES (@couponCode, @discountPercentage) ";
-
-                SqlCommand cmd = new SqlCommand(sqlStatement);
+                cmd = new SqlCommand(sql.ToString(), conn);
                 cmd.Parameters.AddWithValue("@couponCode", couponCode);
                 cmd.Parameters.AddWithValue("@discountPercentage", discountPercentage);
-
-                bool success = dbConnection.executeNonQuery(cmd);
-
-                return success;
+                conn.Open();
+                //result = dbConnection.executeNonQuery();
             }
             catch (Exception ex)
             {
-                
-                return false;
+                errMsg = ex.Message;
             }
+            return result;
         }
 
 

@@ -17,5 +17,10 @@ namespace RestaurantOwner.BLL
         {
             return C.getAllCoupons();
         }
+
+        public int createCoupon(string couponCode, int discountPercentage)
+        {
+            return C.createCoupon(couponCode, discountPercentage);
+        }
     }
 }

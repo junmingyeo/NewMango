@@ -67,17 +67,17 @@ namespace RestaurantOwner
                         Response.Redirect("AdminHomePage.aspx");
 
                     }
-                    else if (Session["role"].ToString() == "Staff")
+                    else if (Session["role"].ToString() == "Restaurant Staff")
                     {
                         Response.Redirect("RestaurantStaffPage.aspx");
 
                     }
-                    else if (Session["role"].ToString() == "Owner")
+                    else if (Session["role"].ToString() == "Restaurant Owner")
                     {
                         Response.Redirect("RestaurantOwnerPage.aspx");
 
                     }
-                    else if (Session["role"].ToString() == "Manager")
+                    else if (Session["role"].ToString() == "Restaurant Manager")
                     {
                         Response.Redirect("RestaurantManagerPage.aspx");
 
