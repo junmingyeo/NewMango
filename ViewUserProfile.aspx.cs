@@ -38,7 +38,7 @@ namespace RestaurantOwner
 
 
             con.Open();
-            string strCommandText = "SELECT * FROM UserRegister ORDER BY [Role]";
+            string strCommandText = "SELECT * FROM UserRole";
             SqlCommand cmd1 = new SqlCommand(strCommandText, con);
             SqlDataReader rdr = cmd1.ExecuteReader();
             gvUserProfile.DataSource = rdr;
@@ -80,8 +80,8 @@ namespace RestaurantOwner
         protected void gvUserProfile_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
-            int UserID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
-            SqlCommand cmd = new SqlCommand("DELETE FROM UserRegister WHERE UserID =" + UserID, con);
+            int RoleID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
+            SqlCommand cmd = new SqlCommand("DELETE FROM UserRole WHERE RoleID =" + RoleID, con);
             con.Open();
             int temp = cmd.ExecuteNonQuery();
             if (temp == 1)
@@ -103,10 +103,10 @@ namespace RestaurantOwner
         {
             int index = gvUserProfile.EditIndex;
             GridViewRow row = gvUserProfile.Rows[index];
-            int UserID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
+            int RoleID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
             string Role = ((TextBox)row.Cells[4].Controls[0]).Text.ToString().Trim();
 
-            string sql = "UPDATE UserRegister SET Role='" + Role + "' WHERE UserID=" + UserID + "";
+            string sql = "UPDATE UserRegister SET Role='" + Role + "' WHERE RoleID=" + RoleID + "";
 
 
             SqlCommand cmd = new SqlCommand(sql, con);

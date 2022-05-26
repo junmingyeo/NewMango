@@ -44,7 +44,7 @@
             <tr>
                 <td><asp:GridView ID="gvUserProfile" runat="server" 
                     AutoGenerateColumns="False"
-                    DataKeyNames="UserID" 
+                    DataKeyNames="RoleID" 
                     Width="50%" 
                     AllowSorting="True" 
                     OnRowDeleting="gvUserProfile_RowDeleting" 
@@ -60,11 +60,11 @@
                     <AlternatingRowStyle BackColor="#e6e6e6"/>
                     
             <Columns>
-                <asp:BoundField DataField="UserID" HeaderText="UserID" />
-                <asp:BoundField DataField="Email" HeaderText="Email" />
-                <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                <asp:BoundField DataField="RoleID" HeaderText="RoleID" />
                 <asp:BoundField DataField="Role" HeaderText="Role" />
+                <asp:BoundField DataField="FunctionAccess" HeaderText="FunctionAccess" />
+                <%--<asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                <asp:BoundField DataField="Role" HeaderText="Role" />--%>
                 <asp:CommandField ShowEditButton="True" EditText="<img style='height:20px; width:20px;' src='images/editicon.jpg'/>" />
                 <asp:TemplateField>
         <ItemTemplate>

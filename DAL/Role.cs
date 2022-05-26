@@ -14,7 +14,7 @@ namespace RestaurantOwner.DAL
         private String errMsg;
         DALDBConn dbConn = new DALDBConn();
 
-        public int CreateRole(string nRole, string gFunction)
+        public int CreateRole(string Role, string FunctionAccess)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
@@ -30,8 +30,8 @@ namespace RestaurantOwner.DAL
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@Role", nRole);
-                sqlCmd.Parameters.AddWithValue("@FunctionAccess", gFunction);
+                sqlCmd.Parameters.AddWithValue("@Role", Role);
+                sqlCmd.Parameters.AddWithValue("@FunctionAccess", FunctionAccess);
                 result = sqlCmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -86,7 +86,7 @@ namespace RestaurantOwner.DAL
 
             sql = new StringBuilder();
             sql.AppendLine("SELECT Role FROM UserRole");
-            sql.AppendLine(" ");
+            //sql.AppendLine(" ");
             //sql.AppendLine("WHERE RoleID=@RoleID");
             SqlConnection conn = dbConn.getConnection();
             try

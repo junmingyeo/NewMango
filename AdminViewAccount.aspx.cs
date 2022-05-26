@@ -26,7 +26,7 @@ namespace RestaurantOwner
 
                 {
 
-                    Response.Redirect("UserLogin.aspx");
+                    Response.Redirect("LoginPage.aspx");
                 }
                 if (Session["role"].ToString() == "Admin")
                 {
@@ -34,7 +34,7 @@ namespace RestaurantOwner
                 }
                 else
                 {
-                    Response.Redirect("UserLogin.aspx");
+                    Response.Redirect("LoginPage.aspx");
                 }
             }
 
