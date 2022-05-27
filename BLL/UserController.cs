@@ -11,14 +11,14 @@ namespace RestaurantOwner.BLL
     {
         Users dal = new Users();
 
-        public DataSet GetAllUser()
+        public DataSet getUsers()
         {
-            return dal.profileAcc();
+            return dal.viewUsers();
         }
 
         public int AddAccount(string Email, string FirstName, string LastName, string Password, string Role)
         {
-            return dal.CreateUser(Email, FirstName, LastName, Password, Role);
+            return dal.createUser(Email, FirstName, LastName, Password, Role);
         }
 
         public int UpdateUserDetails(int UserID, string Email, string FirstName, string LastName, string Password, string Role)
@@ -31,7 +31,7 @@ namespace RestaurantOwner.BLL
             return dal.searchUser(FirstName);
         }
 
-        public int SuspendUserAcc(string UserID)
+        public int SuspendUserAcc(int UserID)
         {
             return dal.suspendUser(UserID);
         }

@@ -33,6 +33,10 @@ namespace RestaurantOwner
             {
             }
         }
+        protected void AdminViewAccount()
+        {
+            Response.Write("<script>alert('Account created successfully');window.location='ViewUserProfile.aspx';</script>");
+        }
 
         protected void AddUPBtn_Click(object sender, EventArgs e)
         {
@@ -41,11 +45,11 @@ namespace RestaurantOwner
             RoleResult = roleDetails.AddProfile(UP_tb.Text.ToString().Trim(), Access_DDL.SelectedValue.ToString().Trim());
             if (RoleResult > 0)
             {
-                Response.Write("<script>alert('Registered successfully');window.location='ViewUserProfile.aspx';</script>");
+                AdminViewAccount();
             }
             else
             {
-                Response.Write("<script>alert('Registration not successful');</script>");
+                Response.Write("<script>alert('Account creation fail');</script>");
             }
 
         }

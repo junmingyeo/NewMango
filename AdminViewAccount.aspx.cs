@@ -61,12 +61,12 @@ namespace RestaurantOwner
         private void bindGv()
         {
             DataSet ds;
-            ds = logindal.GetAllUser();
+            ds = logindal.getUsers();
             gvAccount.DataSource = ds;
             gvAccount.DataBind();
         }
 
-        protected void FillGrid()
+        protected void displayUsers()
         {
             SqlCommand cmd = new SqlCommand("select * from UserRegister", con);
             con.Open();
@@ -75,11 +75,11 @@ namespace RestaurantOwner
             con.Close();
         }
 
-        protected void gvAccount_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void suspendUserBtn(object sender, GridViewDeleteEventArgs e)
         {
             //3-tier
             int result = 0;
-            string requestID = gvAccount.DataKeys[e.RowIndex].Value.ToString();
+            int requestID = Convert.ToInt32(gvAccount.DataKeys[e.RowIndex].Value);
             result = logindal.SuspendUserAcc((requestID));
             if (result > 0)
             {
@@ -101,17 +101,17 @@ namespace RestaurantOwner
                 lblMessage.Text = "Record DELETED successfully";
             }
             con.Close();
-            FillGrid();
+            displayUsers();
         }
 
 
         protected void gvAccount_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvAccount.EditIndex = e.NewEditIndex;
-            FillGrid();
+            displayUsers();
         }
 
-        protected void gvAccount_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void updateUserBtn(object sender, GridViewUpdateEventArgs e)
         {
             int index = gvAccount.EditIndex;
             GridViewRow row = gvAccount.Rows[index];
@@ -135,13 +135,13 @@ namespace RestaurantOwner
                 lblMessage.Text = "Record UPDATED successfully";
             }
             gvAccount.EditIndex = -1;
-            FillGrid();
+            displayUsers();
 
         }
         protected void gvAccount_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gvAccount.EditIndex = -1;
-            FillGrid();
+            displayUsers();
         }
 
 

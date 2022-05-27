@@ -31,7 +31,7 @@ namespace RestaurantOwner
                 if (Session["role"].ToString() == "Admin")
                 {
                     Email = Session["Email"].ToString();
-                    bindGridView();
+                    getProfiles();
                 }
                 else
                 {
@@ -51,7 +51,7 @@ namespace RestaurantOwner
         }
 
         //3-tier
-        private void bindGridView()
+        private void getProfiles()
         {
             DataSet ds;
             ds = profilelist.ViewRoles();
@@ -59,7 +59,7 @@ namespace RestaurantOwner
             gvUserProfile.DataBind();
         }
 
-        protected void FillGrid()
+        protected void displayProfiles()
         {
             SqlCommand cmd = new SqlCommand("select * from UserRole", con);
             con.Open();
@@ -73,7 +73,7 @@ namespace RestaurantOwner
             Response.Redirect("CreateUserProfile.aspx");
         }
 
-        protected void gvUserProfile_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void suspendProfileBtn(object sender, GridViewDeleteEventArgs e)
         {
             //3-tier
             int result = 0;
@@ -99,17 +99,18 @@ namespace RestaurantOwner
                 lblMessage.Text = "Record DELETED successfully";
             }
             con.Close();
-            FillGrid();
+            displayProfiles();
         }
 
 
         protected void gvUserProfile_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvUserProfile.EditIndex = e.NewEditIndex;
-            FillGrid();
+            displayProfiles();
         }
 
-        protected void gvUserProfile_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        
+        protected void updateProfileBtn(object sender, GridViewUpdateEventArgs e)
         {
             //3-tier
 
@@ -120,7 +121,7 @@ namespace RestaurantOwner
             int RoleID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
             string Role = ((TextBox)row.Cells[1].Controls[0]).Text.ToString().Trim();
 
-            string sql = "UPDATE UserRegister SET Role='" + Role + "' WHERE RoleID=" + RoleID + "";
+            string sql = "UPDATE UserRole SET Role='" + Role + "' WHERE RoleID=" + RoleID + "";
 
 
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -133,13 +134,13 @@ namespace RestaurantOwner
                 lblMessage.Text = "Record UPDATED successfully";
             }
             gvUserProfile.EditIndex = -1;
-            FillGrid();
+            displayProfiles();
 
         }
         protected void gvUserProfile_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gvUserProfile.EditIndex = -1;
-            FillGrid();
+            displayProfiles();
         }
 
 
@@ -156,7 +157,7 @@ namespace RestaurantOwner
             SqlConnection sqlconn = new SqlConnection(mainconn);
             sqlconn.Open();
             SqlCommand sqlCmd = new SqlCommand();
-            string sqlquery = "SELECT * FROM [dbo].[UserRegister] WHERE Role like '%'+@Role+'%'";
+            string sqlquery = "SELECT * FROM [dbo].[UserRole] WHERE Role like '%'+@Role+'%'";
             sqlCmd.CommandText = sqlquery;
             sqlCmd.Connection = sqlconn;
             sqlCmd.Parameters.AddWithValue("Role", txtUPsearch.Text);

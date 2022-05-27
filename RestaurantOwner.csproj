@@ -91,7 +91,7 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="CustomerPage.aspx" />
-    <Content Include="GenerateMoneySpent.aspx" />
+    <Content Include="GenAvgMSPage.aspx" />
     <Content Include="images\black.jpg" />
     <Content Include="images\captcha.png" />
     <Content Include="images\cheeseburger.jpg" />
@@ -177,6 +177,7 @@
     <Compile Include="BLL\MenuItemController.cs" />
     <Compile Include="BLL\PaymentController.cs" />
     <Compile Include="BLL\ProfileController.cs" />
+    <Compile Include="BLL\UserController.cs" />
     <Compile Include="CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -225,12 +226,12 @@
     <Compile Include="DAL\MenuItem.cs" />
     <Compile Include="DAL\Profile.cs" />
     <Compile Include="DAL\Users.cs" />
-    <Compile Include="GenerateMoneySpent.aspx.cs">
-      <DependentUpon>GenerateMoneySpent.aspx</DependentUpon>
+    <Compile Include="GenAvgMSPage.aspx.cs">
+      <DependentUpon>GenAvgMSPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GenerateMoneySpent.aspx.designer.cs">
-      <DependentUpon>GenerateMoneySpent.aspx</DependentUpon>
+    <Compile Include="GenAvgMSPage.aspx.designer.cs">
+      <DependentUpon>GenAvgMSPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>

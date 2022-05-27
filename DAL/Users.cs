@@ -50,7 +50,7 @@ namespace RestaurantOwner.DAL
         }
 
        
-        public int CreateUser(string Email, string FirstName, string LastName, string Password, string Role)
+        public int createUser(string Email, string FirstName, string LastName, string Password, string Role)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
@@ -115,7 +115,7 @@ namespace RestaurantOwner.DAL
             return ExchangeProgramsData;
         }
 
-        public DataSet profileAcc()
+        public DataSet viewUsers()
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
@@ -210,7 +210,7 @@ namespace RestaurantOwner.DAL
 
             return programData;
         }
-        public int suspendUser(string UserID)
+        public int suspendUser(int UserID)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;

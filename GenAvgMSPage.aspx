@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="GenerateMoneySpent.aspx.cs" Inherits="RestaurantOwner.GenerateMoneySpent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMain.Master" AutoEventWireup="true" CodeBehind="GenAvgMSPage.aspx.cs" Inherits="RestaurantOwner.GenerateMoneySpent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <script type="text/javascript">
 

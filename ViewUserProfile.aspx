@@ -47,10 +47,10 @@
                     DataKeyNames="RoleID" 
                     Width="50%" 
                     AllowSorting="True" 
-                    OnRowDeleting="gvUserProfile_RowDeleting" 
+                    OnRowDeleting="suspendProfileBtn" 
                     OnRowCancelingEdit="gvUserProfile_RowCancelingEdit" 
                     OnRowEditing="gvUserProfile_RowEditing" 
-                    OnRowUpdating="gvUserProfile_RowUpdating" 
+                    OnRowUpdating="updateProfileBtn" 
                     ShowHeaderWhenEmpty="True"
                     HeaderStyle-CssClass="gridviewheader"
                     EmptyDataText="No Records Found"
@@ -62,7 +62,7 @@
             <Columns>
                 <asp:BoundField DataField="RoleID" HeaderText="RoleID" />
                 <asp:BoundField DataField="Role" HeaderText="Role" />
-                <asp:BoundField DataField="FunctionAccess" HeaderText="FunctionAccess" />
+                <asp:BoundField DataField="Access Rights" HeaderText="Access Rights" />
                 <%--<asp:BoundField DataField="LastName" HeaderText="Last Name" />
                 <asp:BoundField DataField="Role" HeaderText="Role" />--%>
                 <asp:CommandField ShowEditButton="True" EditText="<img style='height:20px; width:20px;' src='images/editicon.jpg'/>" />
