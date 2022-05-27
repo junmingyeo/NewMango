@@ -220,6 +220,7 @@
     <Compile Include="DAL\GenAvgMS.cs" />
     <Compile Include="DAL\GenFreqVisit.cs" />
     <Compile Include="DAL\GenTopItems.cs" />
+    <Compile Include="DAL\Item.cs" />
     <Compile Include="DAL\MainMenu.cs" />
     <Compile Include="DAL\Menu.cs" />
     <Compile Include="DAL\MenuDisplay.cs" />

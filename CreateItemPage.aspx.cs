@@ -49,14 +49,6 @@ namespace RestaurantOwner
         }
         protected void displayItemCreated()
         {
-            //con.Open();
-            //SqlCommand cmd = new SqlCommand("select * from Item", con);
-            //SqlDataReader dr = cmd.ExecuteReader();
-            //if (dr.HasRows == true)
-            //{
-            //    itemGV.DataSource = dr;
-            //    itemGV.DataBind();
-            //}
             DataTable dt = ic.getAllItems();
 
             itemGV.DataSource = dt;

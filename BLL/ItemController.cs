@@ -9,29 +9,28 @@ namespace RestaurantOwner.BLL
 {
     public class ItemController
     {
-        Menu m = new Menu();
-        MenuItem mi = new MenuItem();
-        Cart cart = new Cart();
+        Item i = new Item();
 
         //On Page Load Generate Money Report for today
         public DataTable getAllItems()
         {
-            return m.getAllItems();
+            return i.getAllItems();
         }
-
-        public int createItem(string name, decimal price, string desc)
+        public int createItem(string ItemName, string ItemType, double ItemPrice, string image)
         {
-            return m.itemCreated(name, price, desc);
+            return i.createItem(ItemName, ItemType, ItemPrice, image);
         }
-
-        public void viewItemDetails(string name, double price, string desc)
+        public int updateItem(string ItemName, string ItemType, double ItemPrice, string image)
         {
-            mi.getItemDetails(name, price, desc);
+            return i.updateItem(ItemName, ItemType, ItemPrice, image);
         }
-
-        public void addItemtoCart(string name, double price, string desc)
+        public int deleteItem(string ItemName)
         {
-            cart.itemsAdded(name, price, desc);
+            return i.deleteItem(ItemName);
+        }
+        public int searchItem(string ItemName)
+        {
+            return i.searchItem(ItemName);
         }
     }
 }
