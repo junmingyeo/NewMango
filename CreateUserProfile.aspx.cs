@@ -86,7 +86,7 @@ namespace RestaurantOwner
 
         protected void AddUPBtn_Click(object sender, EventArgs e)
         {
-            Role_Controller roleDetails = new Role_Controller();
+            ProfileController roleDetails = new ProfileController();
             int RoleResult;
             RoleResult = roleDetails.RegisterRole(UP_tb.Text.ToString().Trim(), Access_DDL.SelectedValue.ToString().Trim());
             if (RoleResult > 0)

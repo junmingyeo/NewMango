@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace RestaurantOwner.DAL
 {
-    public class Role
+    public class Profile
     {
         private String errMsg;
         DALDBConn dbConn = new DALDBConn();

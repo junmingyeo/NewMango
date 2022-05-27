@@ -7,9 +7,9 @@ using System.Data;
 
 namespace RestaurantOwner.BLL
 {
-    public class Role_Controller
+    public class ProfileController
     {
-        Role dal = new Role();
+        Profile dal = new Profile();
 
         public int RegisterRole(string Role, String Function)
         {
