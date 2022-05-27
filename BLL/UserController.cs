@@ -11,16 +11,6 @@ namespace RestaurantOwner.BLL
     {
         Users dal = new Users();
 
-        public DataSet loginUser(string userID, string password)
-        {
-            return dal.getUserDetails(userID, password);
-        }
-
-        public DataSet GetProfile(int UserID)
-        {
-            return dal.profileDetails(UserID);
-        }
-
         public DataSet GetAllUser()
         {
             return dal.profileAcc();

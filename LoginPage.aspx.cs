@@ -50,7 +50,7 @@ namespace RestaurantOwner
 
             if (bValid)
             {
-                UserController LC = new UserController();
+                LoginController LC = new LoginController();
                 DataSet DataSetResult;
                 string email = tb_Email.Text;
                 string password = tb_Password.Text;
