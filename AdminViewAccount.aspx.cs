@@ -13,6 +13,9 @@ namespace RestaurantOwner
 {
     public partial class AdminViewAccount : System.Web.UI.Page
     {
+
+        LoginController logindal = new LoginController();
+
         SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\Database.mdf;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,6 +34,7 @@ namespace RestaurantOwner
                 if (Session["role"].ToString() == "Admin")
                 {
                     Email = Session["Email"].ToString();
+                    bindGv();
                 }
                 else
                 {
@@ -48,21 +52,18 @@ namespace RestaurantOwner
             con.Close();
         }
 
-        //protected void bindGridView()
-        //{
-        //    gvbll DDLAccount = new gvbll();
-        //    DataSet ds;
-        //    ds = DDLAccount.BindGridVw();
-        //    ////ds = custorder.GetAllCO(ViewState["sorting"].ToString());
-        //    DataTable dt = new DataTable();
-        //    dt = ds.Tables[0];
-        //    gvAccount.DataSource = dt;
-        //    gvAccount.DataBind();
-        //}
-
-        protected void btn_AddAccount_Click(object sender, EventArgs e)
+        protected void btn_Backbtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddAccount.aspx");
+            Response.Redirect("AdminPage.aspx");
+        }
+
+        //3-tier
+        private void bindGv()
+        {
+            DataSet ds;
+            ds = logindal.GetAllUser();
+            gvAccount.DataSource = ds;
+            gvAccount.DataBind();
         }
 
         protected void FillGrid()
@@ -76,7 +77,21 @@ namespace RestaurantOwner
 
         protected void gvAccount_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            //3-tier
+            int result = 0;
+            string requestID = gvAccount.DataKeys[e.RowIndex].Value.ToString();
+            result = logindal.SuspendUserAcc((requestID));
+            if (result > 0)
+            {
+                Response.Write("<script>alert('Success');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('NOT Success');</script>");
+            }
+            Response.Redirect("ViewUserProfile.aspx");
 
+            //not 3-tier
             int UserID = Convert.ToInt32(gvAccount.DataKeys[e.RowIndex].Value);
             SqlCommand cmd = new SqlCommand("DELETE FROM UserRegister WHERE UserID =" + UserID, con);
             con.Open();
@@ -132,6 +147,13 @@ namespace RestaurantOwner
 
         protected void searchbtn_Click(object sender, EventArgs e)
         {
+            //3-tier
+            DataSet ds;
+            ds = logindal.SearchUserAcc(txtsearch.Text);
+            gvAccount.DataSource = ds;
+            gvAccount.DataBind();
+
+            //not 3-tier
             string mainconn = ConfigurationManager.ConnectionStrings["MangoDB"].ConnectionString;
             SqlConnection sqlconn = new SqlConnection(mainconn);
             sqlconn.Open();
@@ -145,6 +167,11 @@ namespace RestaurantOwner
             sda.Fill(dt);
             gvAccount.DataSource = dt;
             gvAccount.DataBind();
+        }
+
+        protected void btn_AddAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddAccount.aspx");
         }
     }
 }

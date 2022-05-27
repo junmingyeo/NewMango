@@ -7,11 +7,13 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using RestaurantOwner.BLL;
 
 namespace RestaurantOwner
 {
     public partial class ViewUserProfile : System.Web.UI.Page
     {
+        ProfileController profilelist = new ProfileController();
         SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\Database.mdf;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,13 +31,13 @@ namespace RestaurantOwner
                 if (Session["role"].ToString() == "Admin")
                 {
                     Email = Session["Email"].ToString();
+                    bindGridView();
                 }
                 else
                 {
                     Response.Redirect("LoginPage.aspx");
                 }
             }
-
 
             con.Open();
             string strCommandText = "SELECT * FROM UserRole";
@@ -48,13 +50,15 @@ namespace RestaurantOwner
 
         }
 
-        //protected void bind()
-        //{
-        //    List<Tradep> tradepList = new List<Tradep>();
-        //    tradepList = aTrad.getTradepAll();
-        //    gvTradep.DataSource = tradepList;
-        //    gvTradep.DataBind();
-        //}
+        //3-tier
+        private void bindGridView()
+        {
+            DataSet ds;
+            ds = profilelist.ViewRoles();
+            gvUserProfile.DataSource = ds;
+            gvUserProfile.DataBind();
+        }
+
         protected void FillGrid()
         {
             SqlCommand cmd = new SqlCommand("select * from UserRole", con);
@@ -68,18 +72,24 @@ namespace RestaurantOwner
         {
             Response.Redirect("CreateUserProfile.aspx");
         }
-        //protected void FillGrid()
-        //{
-        //    SqlCommand cmd = new SqlCommand("SELECT * FROM UserRegister", con);
-        //    con.Open();
-        //    gvUserProfile.DataSource = cmd.ExecuteReader();
-        //    gvUserProfile.DataBind();
-        //    con.Close();
-        //}
 
         protected void gvUserProfile_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            //3-tier
+            int result = 0;
+            string requestID = gvUserProfile.DataKeys[e.RowIndex].Value.ToString();
+            result = profilelist.SuspendRole(int.Parse(requestID));
+            if (result > 0)
+            {
+                Response.Write("<script>alert('Success');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('NOT Success');</script>");
+            }
+            Response.Redirect("ViewUserProfile.aspx");
 
+            //not 3-tier
             int RoleID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
             SqlCommand cmd = new SqlCommand("DELETE FROM UserRole WHERE RoleID =" + RoleID, con);
             con.Open();
@@ -101,10 +111,14 @@ namespace RestaurantOwner
 
         protected void gvUserProfile_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            //3-tier
+
+            
+            //not 3-tier
             int index = gvUserProfile.EditIndex;
             GridViewRow row = gvUserProfile.Rows[index];
             int RoleID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
-            string Role = ((TextBox)row.Cells[4].Controls[0]).Text.ToString().Trim();
+            string Role = ((TextBox)row.Cells[1].Controls[0]).Text.ToString().Trim();
 
             string sql = "UPDATE UserRegister SET Role='" + Role + "' WHERE RoleID=" + RoleID + "";
 
@@ -131,6 +145,13 @@ namespace RestaurantOwner
 
         protected void searchUPbtn_Click(object sender, EventArgs e)
         {
+            //3-tier
+            DataSet ds;
+            ds = profilelist.SearchRole(txtUPsearch.Text);
+            gvUserProfile.DataSource = ds;
+            gvUserProfile.DataBind();
+
+            //not 3-tier
             string mainconn = ConfigurationManager.ConnectionStrings["MangoDB"].ConnectionString;
             SqlConnection sqlconn = new SqlConnection(mainconn);
             sqlconn.Open();

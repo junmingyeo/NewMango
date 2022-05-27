@@ -17,16 +17,24 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server" style="text-align:center;">
         
+        <br />
+        
         <asp:Button runat="server" ID="createaccbtn" class="btn" OnClientClick="window.location.href='AddAccount.aspx'; return false;"
   Text="Create Account"></asp:Button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button runat="server" ID="viewaccbtn" class="btn" OnClientClick="window.location.href='AdminViewAccount.aspx'; return false;"
   Text="View Account"></asp:Button>
+        
+        <br />
+        <br />
         
     <asp:Button runat="server" ID="createupbtn" class="btn" OnClientClick="window.location.href='CreateUserProfile.aspx'; return false;"
   Text="Create User Profile"></asp:Button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button runat="server" ID="viewupbtn" class="btn" OnClientClick="window.location.href='ViewUserProfile.aspx'; return false;"
   Text="View User Profile"></asp:Button>
+        <br />
+        <br />
     </form>
     
 </asp:Content>

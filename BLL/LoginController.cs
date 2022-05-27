@@ -21,18 +21,31 @@ namespace RestaurantOwner.BLL
             return dal.profileDetails(UserID);
         }
 
-        public DataSet GetAdminResetPW()
+        public DataSet GetAllUser()
         {
-            return dal.adminResetPW();
+            return dal.profileAcc();
         }
-        public int GetAdminResetPWPassword(int UserID, string newPassword)
-        {
-            return dal.adminResetPWPassword(UserID, newPassword);
-        }
+
         public int AddAccount(string Email, string FirstName, string LastName, string Password, string Role)
         {
             return dal.CreateUser(Email, FirstName, LastName, Password, Role);
         }
+
+        public int UpdateUserDetails(int UserID, string Email, string FirstName, string LastName, string Password, string Role)
+        {
+            return dal.updateUser(UserID, Email, FirstName, LastName, Password, Role);
+        }
+
+        public DataSet SearchUserAcc(string FirstName)
+        {
+            return dal.searchUser(FirstName);
+        }
+
+        public int SuspendUserAcc(string UserID)
+        {
+            return dal.suspendUser(UserID);
+        }
+
 
 
     }

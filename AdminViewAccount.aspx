@@ -85,6 +85,8 @@
         </asp:GridView>
                     <br />
                     <asp:Label ID="lblMessage" runat="server" CssClass="validation"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btn_back" runat="server" class="btn" Text="Back" OnClick="btn_Backbtn_Click" />
                 </td>
             </tr>
         </table>

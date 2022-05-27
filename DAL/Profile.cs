@@ -14,7 +14,7 @@ namespace RestaurantOwner.DAL
         private String errMsg;
         DALDBConn dbConn = new DALDBConn();
 
-        public int CreateRole(string Role, string FunctionAccess)
+        public int createProfile(string Role, string FunctionAccess)
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
@@ -46,8 +46,7 @@ namespace RestaurantOwner.DAL
             return result;
         }
 
-        //for select later
-        public DataSet RoleDetails(int RoleID)
+        public DataSet viewProfiles()
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
@@ -55,14 +54,10 @@ namespace RestaurantOwner.DAL
 
             sql = new StringBuilder();
             sql.AppendLine("SELECT * FROM UserRole");
-            sql.AppendLine(" ");
-            sql.AppendLine("WHERE RoleID=@RoleID");
             SqlConnection conn = dbConn.getConnection();
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@RoleID", RoleID);
-                //SqlDataReader dr = sqlCmd.ExecuteReader();
                 SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
 
                 da.Fill(ExchangeProgramsData);
@@ -78,25 +73,30 @@ namespace RestaurantOwner.DAL
 
             return ExchangeProgramsData;
         }
-        public DataSet BindDDLRole()
+
+        public int updateProfile(int RoleID, string Role)
         {
+
             StringBuilder sql;
             SqlCommand sqlCmd;
-            DataSet RoleData = new DataSet();
+            int result;
+
+            result = 0;
 
             sql = new StringBuilder();
-            sql.AppendLine("SELECT Role FROM UserRole");
-            //sql.AppendLine(" ");
-            //sql.AppendLine("WHERE RoleID=@RoleID");
+            sql.AppendLine("UPDATE UserRegister");
+            sql.AppendLine(" ");
+            sql.AppendLine("SET Role = @Role");
+            sql.AppendLine(" ");
+            sql.AppendLine("WHERE RoleID=@RoleID");
             SqlConnection conn = dbConn.getConnection();
+            conn.Open();
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
-                //sqlCmd.Parameters.AddWithValue("@Role", Role);
-                //SqlDataReader dr = sqlCmd.ExecuteReader();
-                SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
-
-                da.Fill(RoleData);
+                sqlCmd.Parameters.AddWithValue("@RoleID", RoleID);
+                sqlCmd.Parameters.AddWithValue("@Role", Role);
+                result = sqlCmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -107,38 +107,68 @@ namespace RestaurantOwner.DAL
                 conn.Close();
             }
 
-            return RoleData;
+            return result;
+        }
+        public DataSet searchProfile(string Role)
+        {
+            StringBuilder sql;
+            SqlDataAdapter da;
+            DataSet programData;
+
+            SqlConnection conn = dbConn.getConnection();
+            programData = new DataSet();
+            sql = new StringBuilder();
+            sql.AppendLine("SELECT * From UserRegister WHERE Role LIKE '%'+@Role+'%'");
+            conn.Open();
+
+            try
+            {
+                da = new SqlDataAdapter(sql.ToString(), conn);
+                da.SelectCommand.Parameters.AddWithValue("@Role", Role);
+                da.Fill(programData);
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return programData;
+        }
+        public int suspendProfile(int RoleID)
+        {
+            StringBuilder sql;
+            SqlCommand sqlCmd;
+            int result;
+
+            result = 0;
+
+            sql = new StringBuilder();
+            sql.AppendLine("DELETE FROM UserRole WHERE RoleID=@RoleID");
+            sql.AppendLine(" ");
+            SqlConnection conn = dbConn.getConnection();
+            conn.Open();
+
+            try
+            {
+                sqlCmd = new SqlCommand(sql.ToString(), conn);
+                sqlCmd.Parameters.AddWithValue("@RoleID", RoleID);
+                result = sqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return result;
         }
 
-        //public int Newrole(string newrole, string functionaccess)
-        //{
-        //    StringBuilder sql;
-        //    SqlCommand sqlCmd;
-        //    int result = 0;
-
-        //    sql = new StringBuilder();
-        //    sql.AppendLine("INSERT INTO UserRole (Role, Function)");
-        //    sql.AppendLine(" ");
-        //    sql.AppendLine("VALUES (@Role, @Function)"); ;
-        //    SqlConnection conn = dbConn.getConnection();
-        //    conn.Open();
-        //    try
-        //    {
-        //        sqlCmd = new SqlCommand(sql.ToString(), conn);
-        //        sqlCmd.Parameters.AddWithValue("@Role", newrole);
-        //        sqlCmd.Parameters.AddWithValue("@Function", functionaccess);
-        //        result = sqlCmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        errMsg = ex.Message;
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-
-        //    return result;
-        //}
     }
 }

@@ -114,15 +114,15 @@ namespace RestaurantOwner.DAL
 
             return ExchangeProgramsData;
         }
-        public DataSet adminResetPW()
+
+        public DataSet profileAcc()
         {
             StringBuilder sql;
             SqlCommand sqlCmd;
             DataSet ExchangeProgramsData = new DataSet();
 
             sql = new StringBuilder();
-            sql.AppendLine("SELECT UserID, CONCAT(FirstName,' ', LastName) AS adminName FROM UserRegister");
-            sql.AppendLine(" ");
+            sql.AppendLine("SELECT * FROM UserRegister");
             SqlConnection conn = dbConn.getConnection();
             try
             {
@@ -142,21 +142,91 @@ namespace RestaurantOwner.DAL
 
             return ExchangeProgramsData;
         }
-        public int adminResetPWPassword(int UserID, string newPassword)
+        public int updateUser(int UserID, string Email, string FirstName, string LastName, string Password, string Role)
         {
+
             StringBuilder sql;
             SqlCommand sqlCmd;
-            int result = 0;
+            int result;
+
+            result = 0;
 
             sql = new StringBuilder();
-            sql.AppendLine("UPDATE UserRegister set password = @Password WHERE UserID = @UserID");
+            sql.AppendLine("UPDATE UserRegister");
             sql.AppendLine(" ");
+            sql.AppendLine("SET Email = @Email,FirstName=@FirstName,LastName=@LastName,Password=@Password,Role=@Role");
+            sql.AppendLine(" ");
+            sql.AppendLine("WHERE RoleID=@RoleID");
             SqlConnection conn = dbConn.getConnection();
             conn.Open();
             try
             {
                 sqlCmd = new SqlCommand(sql.ToString(), conn);
-                sqlCmd.Parameters.AddWithValue("@Password", newPassword);
+                sqlCmd.Parameters.AddWithValue("UserID", UserID);
+                sqlCmd.Parameters.AddWithValue("Email", Email);
+                sqlCmd.Parameters.AddWithValue("FirstName", FirstName);
+                sqlCmd.Parameters.AddWithValue("LastName", LastName);
+                sqlCmd.Parameters.AddWithValue("Password", Password);
+                sqlCmd.Parameters.AddWithValue("Role", Role);
+                result = sqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return result;
+        }
+        public DataSet searchUser(string FirstName)
+        {
+            StringBuilder sql;
+            SqlDataAdapter da;
+            DataSet programData;
+
+            SqlConnection conn = dbConn.getConnection();
+            programData = new DataSet();
+            sql = new StringBuilder();
+            sql.AppendLine("SELECT * From UserRegister WHERE FirstName LIKE '%'+@FirstName+'%'");
+            conn.Open();
+
+            try
+            {
+                da = new SqlDataAdapter(sql.ToString(), conn);
+                da.SelectCommand.Parameters.AddWithValue("@FirstName", FirstName);
+                da.Fill(programData);
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return programData;
+        }
+        public int suspendUser(string UserID)
+        {
+            StringBuilder sql;
+            SqlCommand sqlCmd;
+            int result;
+
+            result = 0;
+
+            sql = new StringBuilder();
+            sql.AppendLine("DELETE FROM UserRegister WHERE UserID=@UserID");
+            sql.AppendLine(" ");
+            SqlConnection conn = dbConn.getConnection();
+            conn.Open();
+
+            try
+            {
+                sqlCmd = new SqlCommand(sql.ToString(), conn);
                 sqlCmd.Parameters.AddWithValue("@UserID", UserID);
                 result = sqlCmd.ExecuteNonQuery();
             }

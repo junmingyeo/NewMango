@@ -38,6 +38,26 @@ namespace RestaurantOwner
             }
         }
 
+        protected void CreateAccount()
+        {
+            LoginController LC = new LoginController();
+            int DataSetResult;
+            DataSetResult = LC.AddAccount(tb_Email.Text.ToString().Trim(), tb_FirstName.Text.ToString().Trim(), tb_LastName.Text.ToString().Trim(), tb_Password.Text.ToString().Trim(), ddl_Role.SelectedValue.ToString().Trim());
+            if (DataSetResult > 0)
+            {
+                Response.Write("<script>alert('Registered successfully');window.location='AdminViewAccount.aspx';</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Registration not successful');</script>");
+            }
+        }
+
+        protected void AdminViewAccount()
+        {
+            Response.Redirect("AdminViewAccount.aspx");
+        }
+
 
         protected void btn_Create_Click(object sender, EventArgs e)
         {
@@ -118,24 +138,25 @@ namespace RestaurantOwner
 }
             if (bValid)
             {
-                LoginController LC = new LoginController();
-                int DataSetResult;
-                DataSetResult = LC.AddAccount(tb_Email.Text.ToString().Trim(), tb_FirstName.Text.ToString().Trim(), tb_LastName.Text.ToString().Trim(), tb_Password.Text.ToString().Trim(), ddl_Role.SelectedValue.ToString().Trim());
-                if (DataSetResult > 0)
-                {
-                    Response.Write("<script>alert('Registered successfully');window.location='AdminViewAccount.aspx';</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('Registration not successful');</script>");
-                }
+                CreateAccount();
+                //LoginController LC = new LoginController();
+                //int DataSetResult;
+                //DataSetResult = LC.AddAccount(tb_Email.Text.ToString().Trim(), tb_FirstName.Text.ToString().Trim(), tb_LastName.Text.ToString().Trim(), tb_Password.Text.ToString().Trim(), ddl_Role.SelectedValue.ToString().Trim());
+                //if (DataSetResult > 0)
+                //{
+                //    Response.Write("<script>alert('Registered successfully');window.location='AdminViewAccount.aspx';</script>");
+                //}
+                //else
+                //{
+                //    Response.Write("<script>alert('Registration not successful');</script>");
+                //}
             }
 
         }
 
         protected void btn_Cancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminViewAccount.aspx");
+            AdminViewAccount();
         }
     }
 }

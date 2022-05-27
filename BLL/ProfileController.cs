@@ -11,20 +11,30 @@ namespace RestaurantOwner.BLL
     {
         Profile dal = new Profile();
 
-        public int RegisterRole(string Role, String Function)
+        public int AddProfile(string Role, String Function)
         {
-            return dal.CreateRole(Role, Function);
+            return dal.createProfile(Role, Function);
         }
 
-        public DataSet GetRole()
+        public DataSet ViewRoles()
         {
-            return dal.BindDDLRole();
+            return dal.viewProfiles();
         }
-        //public int GetNewRole(string newrole, string functionaccess)
-        //{
-        //    //Roledal dataLayerNewroleDetails;
-        //    //dataLayerNewroleDetails = new Roledal();
-        //    return dal.Newrole(newrole, functionaccess);
-        //}
+
+        public int UpdateRole(int RoleID, string Role)
+        {
+            return dal.updateProfile(RoleID, Role);
+        }
+
+        public DataSet SearchRole(string Role)
+        {
+            return dal.searchProfile(Role);
+        }
+
+        public int SuspendRole(int RoleID)
+        {
+            return dal.suspendProfile(RoleID);
+        }
+
     }
 }

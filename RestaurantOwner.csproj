@@ -92,9 +92,15 @@
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="CustomerPage.aspx" />
     <Content Include="GenerateMoneySpent.aspx" />
+    <Content Include="images\black.jpg" />
+    <Content Include="images\captcha.png" />
     <Content Include="images\cheeseburger.jpg" />
     <Content Include="images\coke.jpg" />
+    <Content Include="images\deleteicon.jpg" />
+    <Content Include="images\editicon.jpg" />
     <Content Include="images\lagsana.jpg" />
+    <Content Include="images\logo_brush.png" />
+    <Content Include="images\mango.jpg" />
     <Content Include="images\mcwings.jpg" />
     <Content Include="images\sprite.jpg" />
     <Content Include="images\zinger.jpg" />
@@ -171,6 +177,7 @@
     <Compile Include="BLL\MenuItemController.cs" />
     <Compile Include="BLL\PaymentController.cs" />
     <Compile Include="BLL\ProfileController.cs" />
+    <Compile Include="BLL\UserController.cs" />
     <Compile Include="CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
