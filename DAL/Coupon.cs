@@ -70,7 +70,55 @@ namespace RestaurantOwner.DAL
             return result;
         }
 
-
+        public int updateCoupon(string couponCode, int discountPercentage)
+        {
+            StringBuilder sql;
+            SqlCommand cmd;
+            int result = 0;
+            sql = new StringBuilder();
+            sql.AppendLine("UPDATE coupons (couponCode, discountPercentage)");
+            sql.AppendLine(" ");
+            sql.AppendLine("SET (@couponCode, @discountPercentage)");
+            sql.AppendLine(" ");
+            sql.AppendLine("WHERE (@couponCode, @discountPercentage)");
+            SqlConnection conn = dbConnection.getConnection();
+            try
+            {
+                cmd = new SqlCommand(sql.ToString(), conn);
+                cmd.Parameters.AddWithValue("@couponCode", couponCode);
+                cmd.Parameters.AddWithValue("@discountPercentage", discountPercentage);
+                conn.Open();
+                //result = dbConnection.executeNonQuery();
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+            }
+            return result;
+        }
+        public int deleteCoupon(string couponCode)
+        {
+            StringBuilder sql;
+            SqlCommand cmd;
+            int result = 0;
+            sql = new StringBuilder();
+            sql.AppendLine("DELETE FROM coupons");
+            sql.AppendLine(" ");
+            sql.AppendLine("WHERE couponCode=@couponCode");
+            SqlConnection conn = dbConnection.getConnection();
+            try
+            {
+                cmd = new SqlCommand(sql.ToString(), conn);
+                cmd.Parameters.AddWithValue("@couponCode", couponCode);
+                conn.Open();
+                //result = dbConnection.executeNonQuery();
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+            }
+            return result;
+        }
 
     }
 }
