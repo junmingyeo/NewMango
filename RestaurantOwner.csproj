@@ -177,7 +177,6 @@
     <Compile Include="BLL\MenuItemController.cs" />
     <Compile Include="BLL\PaymentController.cs" />
     <Compile Include="BLL\ProfileController.cs" />
-    <Compile Include="BLL\UserController.cs" />
     <Compile Include="CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

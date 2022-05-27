@@ -7,7 +7,7 @@ using System.Data;
 
 namespace RestaurantOwner.BLL
 {
-    public class LoginController
+    public class UserController
     {
         Users dal = new Users();
 

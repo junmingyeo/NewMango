@@ -40,7 +40,7 @@ namespace RestaurantOwner
 
         protected void CreateAccount()
         {
-            LoginController LC = new LoginController();
+            UserController LC = new UserController();
             int DataSetResult;
             DataSetResult = LC.AddAccount(tb_Email.Text.ToString().Trim(), tb_FirstName.Text.ToString().Trim(), tb_LastName.Text.ToString().Trim(), tb_Password.Text.ToString().Trim(), ddl_Role.SelectedValue.ToString().Trim());
             if (DataSetResult > 0)

@@ -14,7 +14,7 @@ namespace RestaurantOwner
     public partial class AdminViewAccount : System.Web.UI.Page
     {
 
-        LoginController logindal = new LoginController();
+        UserController logindal = new UserController();
 
         SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\Database.mdf;Integrated Security=True");
 
