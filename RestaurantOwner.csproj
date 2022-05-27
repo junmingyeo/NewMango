@@ -75,6 +75,8 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="CartPage.aspx" />
+    <Content Include="Completed.aspx" />
     <Content Include="CreateItemPage.aspx" />
     <Content Include="CreateUserProfile.aspx" />
     <Content Include="css\bootstrap-theme.css" />
@@ -88,8 +90,12 @@
     <Content Include="css\pagination.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="CustomerPage.aspx" />
     <Content Include="GenerateMoneySpent.aspx" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="MainMenuPage.aspx" />
+    <Content Include="MenuItemPage.aspx" />
+    <Content Include="PaymentPage.aspx" />
     <Content Include="RestaurantManagerPage.aspx" />
     <Content Include="RestaurantOwnerPage.aspx" />
     <Content Include="RestaurantStaffPage.aspx" />
@@ -147,13 +153,32 @@
     <Compile Include="AdminViewAccount.aspx.designer.cs">
       <DependentUpon>AdminViewAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BLL\CartController.cs" />
     <Compile Include="BLL\Coupon_Controller.cs" />
+    <Compile Include="BLL\CustomerController.cs" />
     <Compile Include="BLL\GenAvgMS_Controller.cs" />
     <Compile Include="BLL\GenFreqVisit_Controller.cs" />
     <Compile Include="BLL\GenTopItems_Controller.cs" />
     <Compile Include="BLL\ItemController.cs" />
     <Compile Include="BLL\LoginController.cs" />
+    <Compile Include="BLL\MenuController.cs" />
+    <Compile Include="BLL\MenuItemController.cs" />
+    <Compile Include="BLL\PaymentController.cs" />
     <Compile Include="BLL\Role_Controller.cs" />
+    <Compile Include="CartPage.aspx.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CartPage.aspx.designer.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Completed.aspx.cs">
+      <DependentUpon>Completed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Completed.aspx.designer.cs">
+      <DependentUpon>Completed.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateItemPage.aspx.cs">
       <DependentUpon>CreateItemPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,12 +193,24 @@
     <Compile Include="CreateUserProfile.aspx.designer.cs">
       <DependentUpon>CreateUserProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerPage.aspx.cs">
+      <DependentUpon>CustomerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPage.aspx.designer.cs">
+      <DependentUpon>CustomerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Cart.cs" />
+    <Compile Include="DAL\Checkout.cs" />
     <Compile Include="DAL\Coupon.cs" />
     <Compile Include="DAL\DALDBConn.cs" />
     <Compile Include="DAL\GenAvgMS.cs" />
     <Compile Include="DAL\GenFreqVisit.cs" />
     <Compile Include="DAL\GenTopItems.cs" />
+    <Compile Include="DAL\MainMenu.cs" />
     <Compile Include="DAL\Menu.cs" />
+    <Compile Include="DAL\MenuDisplay.cs" />
+    <Compile Include="DAL\MenuItem.cs" />
     <Compile Include="DAL\Role.cs" />
     <Compile Include="DAL\Users.cs" />
     <Compile Include="GenerateMoneySpent.aspx.cs">
@@ -189,6 +226,27 @@
     </Compile>
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenuPage.aspx.cs">
+      <DependentUpon>MainMenuPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainMenuPage.aspx.designer.cs">
+      <DependentUpon>MainMenuPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItemPage.aspx.cs">
+      <DependentUpon>MenuItemPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuItemPage.aspx.designer.cs">
+      <DependentUpon>MenuItemPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentPage.aspx.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentPage.aspx.designer.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="RestaurantManagerPage.aspx.cs">
       <DependentUpon>RestaurantManagerPage.aspx</DependentUpon>
