@@ -96,12 +96,18 @@
     <Content Include="images\captcha.png" />
     <Content Include="images\cheeseburger.jpg" />
     <Content Include="images\coke.jpg" />
+<<<<<<< Updated upstream
     <Content Include="images\deleteicon.jpg" />
     <Content Include="images\editicon.jpg" />
+=======
+    <Content Include="images\fishburger.jpg" />
+>>>>>>> Stashed changes
     <Content Include="images\lagsana.jpg" />
     <Content Include="images\logo_brush.png" />
     <Content Include="images\mango.jpg" />
     <Content Include="images\mcwings.jpg" />
+    <Content Include="images\pancakes.jpg" />
+    <Content Include="images\pizza.jpg" />
     <Content Include="images\sprite.jpg" />
     <Content Include="images\zinger.jpg" />
     <Content Include="LoginPage.aspx" />
