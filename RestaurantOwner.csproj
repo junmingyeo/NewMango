@@ -98,6 +98,9 @@
     <Content Include="images\coke.jpg" />
     <Content Include="images\deleteicon.jpg" />
     <Content Include="images\editicon.jpg" />
+    <Content Include="images\pizza.jpg"/>
+    <Content Include="images\pancakes.jpg"/>
+    <Content Include="images\fishburger.jpg"/>
     <Content Include="images\lagsana.jpg" />
     <Content Include="images\logo_brush.png" />
     <Content Include="images\mango.jpg" />
