@@ -31,7 +31,7 @@
                                                     <asp:Label ID="lblName" runat="server" Text="Name: "></asp:Label>&nbsp;
                                                     <asp:Label ID="lblDBName" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label><br />
                                                     <br />
-                                                    <asp:Label ID="lblPrice" runat="server" Text="Price: "></asp:Label>&nbsp;
+                                                    <asp:Label ID="lblPrice" runat="server" Text="Price: "></asp:Label>&nbsp; $
                                                     <asp:Label ID="lblDBPrice" runat="server" Text='<%# Eval("ItemPrice") %>'></asp:Label><br /><br />
                                                 </td>
                                             </tr>

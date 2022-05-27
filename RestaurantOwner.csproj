@@ -92,6 +92,12 @@
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="CustomerPage.aspx" />
     <Content Include="GenerateMoneySpent.aspx" />
+    <Content Include="images\cheeseburger.jpg" />
+    <Content Include="images\coke.jpg" />
+    <Content Include="images\lagsana.jpg" />
+    <Content Include="images\mcwings.jpg" />
+    <Content Include="images\sprite.jpg" />
+    <Content Include="images\zinger.jpg" />
     <Content Include="LoginPage.aspx" />
     <Content Include="MainMenuPage.aspx" />
     <Content Include="MenuItemPage.aspx" />
@@ -315,9 +321,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
