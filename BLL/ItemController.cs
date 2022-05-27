@@ -10,6 +10,7 @@ namespace RestaurantOwner.BLL
     public class ItemController
     {
         Item i = new Item();
+        MenuItem mi = new MenuItem();
 
         //On Page Load Generate Money Report for today
         public DataTable getAllItems()
@@ -31,6 +32,11 @@ namespace RestaurantOwner.BLL
         public int searchItem(string ItemName)
         {
             return i.searchItem(ItemName);
+        }
+
+        public void viewItemDetails(string itemName, double price,string desc)
+        {
+            mi.getItemDetails(itemName, price, desc);
         }
     }
 }

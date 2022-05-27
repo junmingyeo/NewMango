@@ -101,6 +101,7 @@
                     <asp:Label ID="Label6" runat="server" Text="Final Price:"></asp:Label>
                 </td>
                 <td class="auto-style11">
+                    $
                     <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>
