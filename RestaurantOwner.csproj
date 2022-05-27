@@ -153,7 +153,7 @@
     <Compile Include="BLL\GenTopItems_Controller.cs" />
     <Compile Include="BLL\ItemController.cs" />
     <Compile Include="BLL\LoginController.cs" />
-    <Compile Include="BLL\Role_Controller.cs" />
+    <Compile Include="BLL\ProfileController.cs" />
     <Compile Include="CreateItemPage.aspx.cs">
       <DependentUpon>CreateItemPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,7 +174,7 @@
     <Compile Include="DAL\GenFreqVisit.cs" />
     <Compile Include="DAL\GenTopItems.cs" />
     <Compile Include="DAL\Menu.cs" />
-    <Compile Include="DAL\Role.cs" />
+    <Compile Include="DAL\Profile.cs" />
     <Compile Include="DAL\Users.cs" />
     <Compile Include="GenerateMoneySpent.aspx.cs">
       <DependentUpon>GenerateMoneySpent.aspx</DependentUpon>
