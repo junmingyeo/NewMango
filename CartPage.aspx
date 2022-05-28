@@ -57,6 +57,7 @@
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="ItemName" HeaderText="Item Name"/>
+                    <asp:BoundField DataField="specialOrder" HeaderText="Special Orders" />
                     <asp:BoundField DataField="quantity" HeaderText="Qty"/>
                     <asp:BoundField DataField="price" HeaderText="Price"/>
                     <asp:CommandField ButtonType="Button" ShowDeleteButton="True">

@@ -5,6 +5,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 160px;
+        }
+
+        .btn {
+                font-weight:bold;
+                font-size:16px;
+            background-color: #59b300;
+            color:white;
+            border-radius: 5px;
+            border: 1px solid #b3b3b3;
+            width:200px;
+            height:60px;
+            }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,13 +61,21 @@
             </tr>
             <tr>
                 <td>
-                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="Special Orders: "></asp:Label>
+                    <asp:TextBox ID="specialOrders" runat="server" Height="60px" Width="529px"></asp:TextBox>
+                    <br /> <br /><br /> <br /><br /> <br />
                     <table>
                         <tr>
-                            <td>
-                                 <asp:Button ID="btnBuy" runat="server" Text="Add to cart" OnClick="btnBuy_Click" style="height: 26px" />
-                                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" style="height: 26px" />
+                            <td class="auto-style1"> 
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <asp:Button class="btn" ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" style="height: 26px" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Button class="btn" ID="btnBuy" runat="server" Text="Add to cart" OnClick="btnBuy_Click" style="height: 26px" />
                             </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1"> 
+                                &nbsp;</td>
                         </tr>
                     </table>
                 </td>

@@ -98,9 +98,9 @@
     <Content Include="images\coke.jpg" />
     <Content Include="images\deleteicon.jpg" />
     <Content Include="images\editicon.jpg" />
-    <Content Include="images\pizza.jpg"/>
-    <Content Include="images\pancakes.jpg"/>
-    <Content Include="images\fishburger.jpg"/>
+    <Content Include="images\pizza.jpg" />
+    <Content Include="images\pancakes.jpg" />
+    <Content Include="images\fishburger.jpg" />
     <Content Include="images\lagsana.jpg" />
     <Content Include="images\logo_brush.png" />
     <Content Include="images\mango.jpg" />
@@ -111,6 +111,7 @@
     <Content Include="MainMenuPage.aspx" />
     <Content Include="MenuItemPage.aspx" />
     <Content Include="PaymentPage.aspx" />
+    <Content Include="PlacedOrderPage.aspx" />
     <Content Include="RestaurantManagerPage.aspx" />
     <Content Include="RestaurantOwnerPage.aspx" />
     <Content Include="RestaurantStaffPage.aspx" />
@@ -264,6 +265,13 @@
     </Compile>
     <Compile Include="PaymentPage.aspx.designer.cs">
       <DependentUpon>PaymentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlacedOrderPage.aspx.cs">
+      <DependentUpon>PlacedOrderPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlacedOrderPage.aspx.designer.cs">
+      <DependentUpon>PlacedOrderPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="RestaurantManagerPage.aspx.cs">
       <DependentUpon>RestaurantManagerPage.aspx</DependentUpon>

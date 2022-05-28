@@ -17,6 +17,7 @@ namespace RestaurantOwner
         int id;
         int CustId;
         string request = "no cheese";
+        string specialO;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -71,7 +72,7 @@ namespace RestaurantOwner
                     }
                     else
                     {
-                        addOrderItem(drOrder["orderId"].ToString(), drOrder["CustId"].ToString());
+                        addOrderItem(drOrder["OrderID"].ToString(), drOrder["CustId"].ToString());
                     }
                 }
                 else if (dtOrder.Rows.Count == 0)
@@ -89,10 +90,16 @@ namespace RestaurantOwner
         }
         private void addOrderItem(string OrderID, string userId)
         {
-            string query = "insert into tblOrderItem (tblItemID, tblOrderID, quantity) values (" + id + "," + OrderID + "," + 1 + ")";
+            specialO = specialOrders.Text;
+            //string query = "insert into tblOrderItem (tblItemID, tblOrderID, quantity, specialOrder) values (" + id + "," + OrderID + "," + 1 + " , "+ specialO +")";
+            string query = "insert into tblOrderItem (tblItemID, tblOrderID, quantity, specialOrder) values (@tblItemID, @tblOrderID, @quantity, @specialOrder)";
             using (SqlConnection con = new SqlConnection(CS))
             {
                 SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@tblItemID", id);
+                cmd.Parameters.AddWithValue("@tblOrderID", OrderID);
+                cmd.Parameters.AddWithValue("@quantity", 1);
+                cmd.Parameters.AddWithValue("@specialOrder", specialO);
                 con.Open();
                 cmd.ExecuteNonQuery();
             }

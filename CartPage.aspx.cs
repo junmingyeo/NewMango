@@ -41,7 +41,7 @@ namespace RestaurantOwner
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand(@"Select i.ItemName, i.ItemPrice*t.quantity as price, t.quantity 
+                SqlCommand cmd = new SqlCommand(@"Select i.ItemName, t.specialOrder, i.ItemPrice*t.quantity as price, t.quantity 
                                             FROM Item as i 
                                             inner join tblOrderItem as t on i.ItemID=t.tblItemID 
                                             inner join TableOrder as tt on t.tblOrderID=tt.OrderID 
