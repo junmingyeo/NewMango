@@ -89,7 +89,7 @@ namespace RestaurantOwner
             {
                 Response.Write("<script>alert('NOT Success');</script>");
             }
-            Response.Redirect("ViewUserProfile.aspx");
+            Response.Redirect("AdminViewAccount.aspx");
 
             //not 3-tier
             int UserID = Convert.ToInt32(gvAccount.DataKeys[e.RowIndex].Value);
@@ -122,8 +122,8 @@ namespace RestaurantOwner
             string Password = ((TextBox)row.Cells[4].Controls[0]).Text.ToString().Trim();
             string Role = ((TextBox)row.Cells[5].Controls[0]).Text.ToString().Trim();
 
-            string sql = "UPDATE UserRegister SET Email='" + Email + "',FirstName='" + FirstName + "',LastName='" + LastName + "',Password='" + Password + "',Role='" + Role + "' WHERE UserID=" + UserID + "";
-
+            //string sql = "UPDATE UserRegister SET Email='" + Email + "',FirstName='" + FirstName + "',LastName='" + LastName + "',Password='" + Password + "',Role='" + Role + "' WHERE UserID=" + UserID + "";
+            string sql = "UPDATE UserRegister SET FirstName='Johnny', LastName='Tan' WHERE UserID=1";
 
             SqlCommand cmd = new SqlCommand(sql, con);
             con.Open();
@@ -147,11 +147,11 @@ namespace RestaurantOwner
 
         protected void searchbtn_Click(object sender, EventArgs e)
         {
-            //3-tier
-            DataSet ds;
-            ds = logindal.SearchUserAcc(txtsearch.Text);
-            gvAccount.DataSource = ds;
-            gvAccount.DataBind();
+            ////3-tier
+            //DataSet ds;
+            //ds = logindal.SearchUserAcc(txtsearch.Text);
+            //gvAccount.DataSource = ds;
+            //gvAccount.DataBind();
 
             //not 3-tier
             string mainconn = ConfigurationManager.ConnectionStrings["MangoDB"].ConnectionString;

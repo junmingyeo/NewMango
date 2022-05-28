@@ -1,21 +1,21 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMain.Master" AutoEventWireup="true" CodeBehind="GenAvgMSPage.aspx.cs" Inherits="RestaurantOwner.GenerateMoneySpent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMain.Master" AutoEventWireup="true" CodeBehind="GenTopItemsPage.aspx.cs" Inherits="RestaurantOwner.GenTopItemsPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server" style="align-content:center">
+    <form id="form1" runat="server">
         <div>
             <br />
             <h2>
-                Average Money Spent By Customer
+                Top 5 Most Popular Items
             </h2>
             <br />
             <br />
-            <asp:GridView ID="gvCart" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" style="margin-left: 0px" Width="732px" CssClass="auto-style17" HorizontalAlign="Center">
+            <asp:GridView ID="gvCart" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ItemName" style="margin-left: 0px" Width="732px" CssClass="auto-style17" HorizontalAlign="Center">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="CustEmail" HeaderText="Customer Email" />
-                    <asp:BoundField DataField="averageSpending" HeaderText="Price ($)"/>
+                    <asp:BoundField DataField="ItemName" HeaderText="Item Name"/>
+                    <asp:BoundField DataField="quantity" HeaderText="Qty"/>
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

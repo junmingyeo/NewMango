@@ -1,17 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="RestaurantStaffPage.aspx.cs" Inherits="RestaurantOwner.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            margin-left: 160px;
-        }
+    <style>
+            .btn {
+                font-weight:bold;
+                font-size:16px;
+            background-color: #59b300;
+            color:white;
+            border-radius: 5px;
+            border: 1px solid #b3b3b3;
+            width:200px;
+            height:60px;
+            }
+
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder4" runat="server">
-    <form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <form id="form2" runat="server" style="text-align:center;">
     <h1>Restaurant Staff Page</h1>
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Place Order" />
+        <asp:Button class="btn" ID="Button7" runat="server" OnClick="Button7_Click" Text="Place Order" /> 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="View Orders" />
+        <asp:Button class="btn" ID="Button8" runat="server" OnClick="Button8_Click" Text="View Orders" />
         <div class="auto-style1">
         </div>
         <br /> 
@@ -21,7 +29,4 @@
     <a href="UserAccount.aspx">User Account</a>
     
     </form>
-    
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>

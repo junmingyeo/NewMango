@@ -52,6 +52,14 @@
                 </Columns>
                 <HeaderStyle BackColor="Black" ForeColor="LightGray" />
             </asp:GridView>
+            <br /> <br /> <br /> <br />
+            <table style="margin:auto">
+                <tr>
+                    <td>
+            <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" />
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
 </asp:Content>

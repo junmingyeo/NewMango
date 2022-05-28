@@ -21,11 +21,12 @@
     <title>Mango.com.sg</title>
     <asp:ContentPlaceHolder id="head" runat="server">
         <style>
+
 .navbar-nav.navbar-center {
     position: absolute;
     left: 50%;
 }
-</style>
+        </style>
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -34,42 +35,35 @@
 <asp:ContentPlaceHolder id="ContentPlaceHolder4" runat="server">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top" style="border-bottom: #e8491d 3px solid;">
         <div class="mx-auto order-0">
-            <a class="navbar-brand" href="Home.aspx" style="font-family:Arial;"><img src="images/mango.png" />&nbsp;&nbsp;Mango</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <a class="navbar-brand" href="Home.aspx" style="font-family:Arial;">
+            <img src="images/mango.png" />&nbsp;&nbsp;Mango</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-
         <div class="navbar-collapse collapse w-55 order-1 order-md-0 dual-collapse2">
             <ul class="nav navbar-nav ml-auto" style="font-size:13px;font-family:Lato;">
-                <li class="nav-item">
-                    <a class="nav-link" href="AboutUs.aspx" style="font-size:13px;font-family:Lato;">ABOUT</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="AboutUs.aspx" style="font-size:13px;font-family:Lato;">ABOUT</a> </li>
             </ul>
         </div>
-
         <div class="navbar-collapse collapse w-45 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto" style="font-size:13px;font-family:Lato;">
                 <% if (Session["UserID"] == null) { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#.aspx" ><i class="fas fa-shopping-cart">&nbsp;</i>CART</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="UserRegister.aspx">REGISTER</a></li> 
-                    <li class="nav-item"><a class="nav-link" href="LoginPage.aspx">LOGIN</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="#.aspx" ><i class="fas fa-shopping-cart">&nbsp;</i>CART</a> </li>
+                <li class="nav-item"><a class="nav-link" href="UserRegister.aspx">REGISTER</a></li>
+                <li class="nav-item"><a class="nav-link" href="LoginPage.aspx">LOGIN</a></li> 
                 <% } 
                 else  { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#.aspx" ><i class="fas fa-shopping-cart">&nbsp;</i>CART</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle">&nbsp;</i>ACCOUNT</a>
+                    <li class="nav-item"><a class="nav-link" href="#.aspx" ><i class="fas fa-shopping-cart">&nbsp;</i>CART</a> </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle">&nbsp;</i>ACCOUNT</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="UserAccount.aspx">EDIT PROFILE</a>
-                            <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider">
+                        </div>
                         <a class="dropdown-item" href="Product.aspx">VIEW HISTORY</a>
                     </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="LoginPage.aspx"><i class="fas fa-sign-out-alt"></i>LOG OUT</a></li>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="LoginPage.aspx"><i class="fas fa-sign-out-alt"></i>LOG OUT</a></li>
                     <%} %>
              </ul>
         </div>
@@ -101,13 +95,14 @@
       <!-- Grid column -->
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">Mango</h6>
-        <p>Mango blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah.</p>
       </div>
 
       <!-- Grid column -->
       <hr class="w-100 clearfix d-md-none"/>
 
       <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold">Contact   <!-- Grid column -->
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
         <p>

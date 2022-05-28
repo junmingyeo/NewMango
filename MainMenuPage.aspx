@@ -16,14 +16,14 @@
 </head>
 
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="text-align:center;">
         <h1>
             Mango Restaurant
             &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
             <asp:Button ID="Cart" runat="server" Text="View your order" OnClick="Cart_Click" />
         </h1>
 
-        <table>
+        <table style="text-align:center;">
             <tr>
                 <th style="text-align: center">
                     Our Menu

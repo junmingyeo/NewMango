@@ -130,6 +130,14 @@
                 <HeaderStyle BackColor="Black" ForeColor="LightGray" />
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
             </asp:GridView>
+            <br /><br /><br /><br />
+            <table style="margin:auto">
+                <tr>
+                    <td>
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Back" />
+                    </td>
+                 </tr>
+             </table>
         </div>
     </form>
 </asp:Content>

@@ -11,8 +11,8 @@
             width:350px;
             height:100px;
         }
-
     </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server" style="text-align:center;">

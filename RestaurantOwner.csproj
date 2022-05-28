@@ -92,6 +92,8 @@
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="CustomerPage.aspx" />
     <Content Include="GenAvgMSPage.aspx" />
+    <Content Include="GenFreqVisitPage.aspx" />
+    <Content Include="GenTopItemsPage.aspx" />
     <Content Include="images\black.jpg" />
     <Content Include="images\captcha.png" />
     <Content Include="images\cheeseburger.jpg" />
@@ -237,6 +239,20 @@
     </Compile>
     <Compile Include="GenAvgMSPage.aspx.designer.cs">
       <DependentUpon>GenAvgMSPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenFreqVisitPage.aspx.cs">
+      <DependentUpon>GenFreqVisitPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenFreqVisitPage.aspx.designer.cs">
+      <DependentUpon>GenFreqVisitPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenTopItemsPage.aspx.cs">
+      <DependentUpon>GenTopItemsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenTopItemsPage.aspx.designer.cs">
+      <DependentUpon>GenTopItemsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>

@@ -62,7 +62,7 @@
             <Columns>
                 <asp:BoundField DataField="RoleID" HeaderText="RoleID" />
                 <asp:BoundField DataField="Role" HeaderText="Role" />
-                <asp:BoundField DataField="Access Rights" HeaderText="Access Rights" />
+                <asp:BoundField DataField="FunctionAccess" HeaderText="Access Rights" />
                 <%--<asp:BoundField DataField="LastName" HeaderText="Last Name" />
                 <asp:BoundField DataField="Role" HeaderText="Role" />--%>
                 <asp:CommandField ShowEditButton="True" EditText="<img style='height:20px; width:20px;' src='images/editicon.jpg'/>" />

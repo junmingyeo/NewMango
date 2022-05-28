@@ -97,5 +97,10 @@ namespace RestaurantOwner
             couponTableGV.EditIndex = -1;
             GVbind();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RestaurantManagerPage.aspx");
+        }
     }
 }

@@ -13,21 +13,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-        <p class="auto-style1">
-        <asp:Label ID="Label1" runat="server" Text="Order Completed! Please wait for your food to arrive!"></asp:Label>
-        </p>
+            &nbsp;
+            <table style="margin:auto">
+                <tr>
+                    <td>
+                        <asp:Label ID="Label1" runat="server" Text="Order Completed! Please wait for your food to arrive!"></asp:Label> <br />
+                        <asp:Label ID="Label2" runat="server" Text="Click to return to menu"></asp:Label> <br />
+                        <asp:Button ID="Button1" runat="server" Text="Return" OnClick="Button1_Click" />
+                    </td>
+                </tr>
+            </table>
     </form>
 </body>
 </html>

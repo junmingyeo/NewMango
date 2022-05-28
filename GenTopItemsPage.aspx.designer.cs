@@ -11,34 +11,34 @@ namespace RestaurantOwner
 {
 
 
-    public partial class Home
+    public partial class GenTopItemsPage
     {
 
         /// <summary>
-        /// genavgmoney control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button genavgmoney;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// gentopsold control.
+        /// gvCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button gentopsold;
+        protected global::System.Web.UI.WebControls.GridView gvCart;
 
         /// <summary>
-        /// genfreqvisit control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button genfreqvisit;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

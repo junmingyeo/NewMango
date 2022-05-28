@@ -38,7 +38,7 @@ namespace RestaurantOwner
             }
         }
 
-        protected void CreateAccount()
+        protected void CreateAccount1()
         {
             UserController LC = new UserController();
             int DataSetResult;
@@ -138,7 +138,7 @@ namespace RestaurantOwner
 }
             if (bValid)
             {
-                CreateAccount();
+                CreateAccount1();
                 //LoginController LC = new LoginController();
                 //int DataSetResult;
                 //DataSetResult = LC.AddAccount(tb_Email.Text.ToString().Trim(), tb_FirstName.Text.ToString().Trim(), tb_LastName.Text.ToString().Trim(), tb_Password.Text.ToString().Trim(), ddl_Role.SelectedValue.ToString().Trim());

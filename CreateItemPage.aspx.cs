@@ -167,5 +167,12 @@ namespace RestaurantOwner
         {
             Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("RestaurantManagerPage.aspx");
+
+        }
     }
 }
