@@ -122,8 +122,7 @@ namespace RestaurantOwner
             string Password = ((TextBox)row.Cells[4].Controls[0]).Text.ToString().Trim();
             string Role = ((TextBox)row.Cells[5].Controls[0]).Text.ToString().Trim();
 
-            //string sql = "UPDATE UserRegister SET Email='" + Email + "',FirstName='" + FirstName + "',LastName='" + LastName + "',Password='" + Password + "',Role='" + Role + "' WHERE UserID=" + UserID + "";
-            string sql = "UPDATE UserRegister SET FirstName='Johnny', LastName='Tan' WHERE UserID=1";
+            string sql = "UPDATE UserRegister SET Email='" + Email + "',FirstName='" + FirstName + "',LastName='" + LastName + "',Password='" + Password + "',Role='" + Role + "' WHERE UserID=" + UserID + "";
 
             SqlCommand cmd = new SqlCommand(sql, con);
             con.Open();

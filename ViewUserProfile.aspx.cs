@@ -121,8 +121,7 @@ namespace RestaurantOwner
             int RoleID = Convert.ToInt32(gvUserProfile.DataKeys[e.RowIndex].Value);
             string Role = ((TextBox)row.Cells[1].Controls[0]).Text.ToString().Trim();
 
-            //string sql = "UPDATE UserRole SET Role='" + Role + "' WHERE RoleID=" + RoleID + "";
-            string sql = "UPDATE UserRole SET Role='Supervisor' WHERE RoleID= 6";
+            string sql = "UPDATE UserRole SET Role='" + Role + "' WHERE RoleID=" + RoleID + "";
 
             SqlCommand cmd = new SqlCommand(sql, con);
             con.Open();
