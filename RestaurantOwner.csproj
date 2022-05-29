@@ -78,6 +78,7 @@
     <Content Include="CartPage.aspx" />
     <Content Include="Completed.aspx" />
     <Content Include="CreateItemPage.aspx" />
+    <Content Include="CreateOrderPage.aspx" />
     <Content Include="CreateUserProfile.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
@@ -172,8 +173,11 @@
       <DependentUpon>AdminViewAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL\CartController.cs" />
+    <Compile Include="BLL\CheckBoxController.cs" />
     <Compile Include="BLL\Coupon_Controller.cs" />
+    <Compile Include="BLL\CreateOrderController.cs" />
     <Compile Include="BLL\CustomerController.cs" />
+    <Compile Include="BLL\DiscountCodeController.cs" />
     <Compile Include="BLL\GenAvgMS_Controller.cs" />
     <Compile Include="BLL\GenFreqVisit_Controller.cs" />
     <Compile Include="BLL\GenTopItems_Controller.cs" />
@@ -183,6 +187,7 @@
     <Compile Include="BLL\MenuItemController.cs" />
     <Compile Include="BLL\PaymentController.cs" />
     <Compile Include="BLL\ProfileController.cs" />
+    <Compile Include="BLL\SearchOrderController.cs" />
     <Compile Include="BLL\UserController.cs" />
     <Compile Include="BLL\ViewOrderController.cs" />
     <Compile Include="CartPage.aspx.cs">
@@ -206,6 +211,13 @@
     <Compile Include="CreateItemPage.aspx.designer.cs">
       <DependentUpon>CreateItemPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CreateOrderPage.aspx.cs">
+      <DependentUpon>CreateOrderPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateOrderPage.aspx.designer.cs">
+      <DependentUpon>CreateOrderPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateUserProfile.aspx.cs">
       <DependentUpon>CreateUserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,6 +236,7 @@
     <Compile Include="DAL\Checkout.cs" />
     <Compile Include="DAL\Coupon.cs" />
     <Compile Include="DAL\DALDBConn.cs" />
+    <Compile Include="DAL\DiscountCode.cs" />
     <Compile Include="DAL\GenAvgMS.cs" />
     <Compile Include="DAL\GenFreqVisit.cs" />
     <Compile Include="DAL\GenTopItems.cs" />

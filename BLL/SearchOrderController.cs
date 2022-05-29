@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using RestaurantOwner.DAL;
 using System.Data;
+using RestaurantOwner.DAL;
 
 namespace RestaurantOwner.BLL
 {
-    public class ViewOrderController
+    public class SearchOrderController
     {
         Order o = new Order();
-        public void viewOrder(int orderID)
+        int orderID;
+        
+        public void validateTableNo()
         {
+            o.getTableNo();
             o.getOrder(orderID);
             o.getOrderDetails();
-            o.getOrderSpecialRequest();
         }
     }
 }

@@ -7,14 +7,21 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using RestaurantOwner.BLL;
 
 namespace RestaurantOwner
 {
     public partial class GenTopItemsPage : System.Web.UI.Page
     {
         string CS = ConfigurationManager.ConnectionStrings["MangoDB"].ConnectionString;
+        GenTopItems_Controller gtic = new GenTopItems_Controller();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            gtic.genDailyReport();
+            gtic.genWeeklyReport();
+            gtic.genMonthlyReport();
+
             if (!IsPostBack)
             {
                 GVbind();

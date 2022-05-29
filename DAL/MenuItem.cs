@@ -75,5 +75,25 @@ namespace RestaurantOwner.DAL
                 conn.Close();
             }
         }
+
+        public void getMenuItem()
+        {
+            SqlConnection conn = dbConnection.getConnection();
+            SqlCommand cmd8 = new SqlCommand();
+            cmd8.Connection = conn;
+            cmd8.CommandType = CommandType.Text;
+            cmd8.CommandText = "SELECT * from Item where ItemName = @ItemName;";
+            cmd8.Parameters.AddWithValue("@ItemName", "item");
+
+            try
+            {
+                conn.Open();
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

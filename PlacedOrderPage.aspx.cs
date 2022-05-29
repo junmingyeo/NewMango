@@ -7,14 +7,25 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using RestaurantOwner.BLL;
 
 namespace RestaurantOwner
 {
     public partial class PlacedOrderPage : System.Web.UI.Page
     {
         string CS = ConfigurationManager.ConnectionStrings["MangoDB"].ConnectionString;
+        ViewOrderController voc = new ViewOrderController();
+        DiscountCodeController doc = new DiscountCodeController();
+        SearchOrderController soc = new SearchOrderController();
+        CheckBoxController cbc = new CheckBoxController();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            voc.viewOrder(2);
+            doc.validateDiscountCode("20OFF");
+            soc.validateTableNo();
+            cbc.getCheckedItem();
+
             if (!IsPostBack)
             {
                 GVbind();
