@@ -13,52 +13,12 @@ namespace RestaurantOwner.DAL
 {
     public class GenAvgMS
     {
-        private SqlConnection sqlConnection = new SqlConnection();
+        private SqlConnection conn = new SqlConnection();
         private String errMsg;
 
         DALDBConn dbConnection = new DALDBConn();
 
-        public DataTable GetTodayMoneyReport()
-        {
-            StringBuilder sql;
-            SqlDataAdapter da;
-            DataTable todayMoneyReport;
-            DateTime tdy = DateTime.Today;
-            SqlConnection conn = dbConnection.getConnection();
-            todayMoneyReport = new DataTable();
-            sql = new StringBuilder();
-            sql.AppendLine("SELECT Customer.Date AS Date, AVG(Item.ItemPrice * tblOrderItem.quantity) AS AmtSpent, COUNT(tblOrderItem.quantity) as NoOfOrders, SUM(Item.ItemPrice * tblOrderItem.quantity) AS AmtTotal FROM Customer");
-            sql.AppendLine(" ");
-            sql.AppendLine("INNER JOIN TableOrder ON Customer.CustID = TableOrder.CustId");
-            sql.AppendLine(" ");
-            sql.AppendLine("INNER JOIN tblOrderItem ON TableOrder.orderId = tblOrderItem.tblOrderID");
-            sql.AppendLine(" ");
-            sql.AppendLine("INNER JOIN Item ON tblOrderItem.tblItemID = Item.ItemID");
-            sql.AppendLine(" ");
-            sql.AppendLine("WHERE Customer.Date = @tdy");
-            sql.AppendLine(" ");
-            sql.AppendLine("GROUP BY Customer.Date");
-            conn.Open();
-
-            try
-            {
-                da = new SqlDataAdapter(sql.ToString(), conn);
-                da.SelectCommand.Parameters.AddWithValue("@tdy", tdy);
-                da.Fill(todayMoneyReport);
-            }
-            catch (Exception ex)
-            {
-                errMsg = ex.Message;
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            return todayMoneyReport;
-        }
-
-        public DataTable getDayMoneyReport(DateTime Date)
+        public DataTable calAvgSpent(DateTime Date)
         {
             StringBuilder sql;
             SqlDataAdapter da;
@@ -98,7 +58,50 @@ namespace RestaurantOwner.DAL
 
         }
 
-        public DataTable getWeekMoneyReport(DateTime Date)
+        public void getAvgSpent()
+        {
+        }
+        public DataTable genDailyReport()
+        {
+            StringBuilder sql;
+            SqlDataAdapter da;
+            DataTable todayMoneyReport;
+            DateTime tdy = DateTime.Today;
+            SqlConnection conn = dbConnection.getConnection();
+            todayMoneyReport = new DataTable();
+            sql = new StringBuilder();
+            sql.AppendLine("SELECT Customer.Date AS Date, AVG(Item.ItemPrice * tblOrderItem.quantity) AS AmtSpent, COUNT(tblOrderItem.quantity) as NoOfOrders, SUM(Item.ItemPrice * tblOrderItem.quantity) AS AmtTotal FROM Customer");
+            sql.AppendLine(" ");
+            sql.AppendLine("INNER JOIN TableOrder ON Customer.CustID = TableOrder.CustId");
+            sql.AppendLine(" ");
+            sql.AppendLine("INNER JOIN tblOrderItem ON TableOrder.orderId = tblOrderItem.tblOrderID");
+            sql.AppendLine(" ");
+            sql.AppendLine("INNER JOIN Item ON tblOrderItem.tblItemID = Item.ItemID");
+            sql.AppendLine(" ");
+            sql.AppendLine("WHERE Customer.Date = @tdy");
+            sql.AppendLine(" ");
+            sql.AppendLine("GROUP BY Customer.Date");
+            conn.Open();
+
+            try
+            {
+                da = new SqlDataAdapter(sql.ToString(), conn);
+                da.SelectCommand.Parameters.AddWithValue("@tdy", tdy);
+                da.Fill(todayMoneyReport);
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return todayMoneyReport;
+        }
+
+        public DataTable genWeeklyReport(DateTime Date)
         {
             StringBuilder sql;
             SqlDataAdapter da;
@@ -138,7 +141,7 @@ namespace RestaurantOwner.DAL
 
         }
 
-        public DataTable getMonthMoneyReport(DateTime Date)
+        public DataTable genMonthlyReport(DateTime Date)
         {
             StringBuilder sql;
             SqlDataAdapter da;
@@ -154,7 +157,7 @@ namespace RestaurantOwner.DAL
             sql.AppendLine(" ");
             sql.AppendLine("INNER JOIN Item ON tblOrderItem.tblItemID = Item.ItemID");
             sql.AppendLine(" ");
-            sql.AppendLine("WHERE Customer.Date BETWEEN @Date and DATEADD(Day, 7, @Date)");
+            sql.AppendLine("WHERE Customer.Date BETWEEN @Date and DATEADD(Day, 30, @Date)");
             sql.AppendLine(" ");
             sql.AppendLine("GROUP BY Customer.Date");
             conn.Open();

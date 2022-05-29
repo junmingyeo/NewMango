@@ -11,18 +11,25 @@ namespace RestaurantOwner.BLL
     {
         GenAvgMS GR = new GenAvgMS();
 
-        //On Page Load Generate Money Report for today
-        public DataTable GetTodayMoneyReport()
+        public DataTable calAvgReport(DateTime Date)
+        {
+            return GR.calAvgSpent(Date);
+        }
+        public DataTable genDailyReport()
         {
             DateTime tdy = DateTime.Today;
-
-            return GR.GetTodayMoneyReport();
+            return GR.genDailyReport();
         }
 
-        //Generate Money Report
-        public DataTable GenerateDayMoneyReport(DateTime Date)
+        public DataTable genWeeklyReport(DateTime Date)
         {
-            return GR.getDayMoneyReport(Date);
+            DateTime tdy = DateTime.Today;
+            return GR.genWeeklyReport(Date);
+        }
+
+        public DataTable genMonthlyReport(DateTime Date)
+        {
+            return GR.genMonthlyReport(Date);
         }
     }
 }
