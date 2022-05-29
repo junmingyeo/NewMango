@@ -184,6 +184,7 @@
     <Compile Include="BLL\PaymentController.cs" />
     <Compile Include="BLL\ProfileController.cs" />
     <Compile Include="BLL\UserController.cs" />
+    <Compile Include="BLL\ViewOrderController.cs" />
     <Compile Include="CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -231,6 +232,7 @@
     <Compile Include="DAL\Menu.cs" />
     <Compile Include="DAL\MenuDisplay.cs" />
     <Compile Include="DAL\MenuItem.cs" />
+    <Compile Include="DAL\Order.cs" />
     <Compile Include="DAL\Profile.cs" />
     <Compile Include="DAL\Users.cs" />
     <Compile Include="GenAvgMSPage.aspx.cs">
