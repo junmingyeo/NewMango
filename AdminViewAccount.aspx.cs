@@ -43,7 +43,7 @@ namespace RestaurantOwner
             }
 
             con.Open();
-            string strCommandText = "SELECT * from UserRegister ORDER BY [Role]";
+            string strCommandText = "SELECT * from UserRegister ORDER BY [RoleID]";
             SqlCommand cmd1 = new SqlCommand(strCommandText, con);
             SqlDataReader rdr = cmd1.ExecuteReader();
             gvAccount.DataSource = rdr;
